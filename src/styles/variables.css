@@ -1,0 +1,11 @@
+@import "fonts.css";
+
+.root {
+  --highlight-primary: red;
+  --highlight-secondary: blue;
+  --highlight-tertiary: green;
+  --highlight-quaternary: yellow;
+
+  --text-primary: red;
+  --text-secondary: green;
+}

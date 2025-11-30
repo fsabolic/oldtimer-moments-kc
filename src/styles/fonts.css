@@ -1,0 +1,48 @@
+@font-face {
+  font-family: "Barlow Condensed";
+  font-weight: 400;
+  font-style: normal;
+  src: url(../fonts/barlowcondensed/barlowcondensed-regular-webfont.woff);
+}
+
+@font-face {
+  font-family: "Barlow Condensed";
+  font-weight: 300;
+  font-style: normal;
+  src: url(../fonts/barlowcondensed/barlowcondensed-light-webfont.woff);
+}
+
+@font-face {
+  font-family: "Barlow Condensed";
+  font-weight: 700;
+  font-style: normal;
+  src: url(../fonts/barlowcondensed/barlowcondensed-bold-webfont.woff);
+}
+
+@font-face {
+  font-family: "Barlow Condensed";
+  font-weight: 800;
+  font-style: normal;
+  src: url(../fonts/barlowcondensed/barlowcondensed-extrabold-webfont.woff);
+}
+
+@font-face {
+  font-family: "Barlow Condensed";
+  font-weight: 900;
+  font-style: normal;
+  src: url(../fonts/barlowcondensed/barlowcondensed-black-webfont.woff);
+}
+
+@font-face {
+  font-family: "Barlow Condensed";
+  font-weight: 400;
+  font-style: italic;
+  src: url(../fonts/barlowcondensed/barlowcondensed-italic-webfont.woff);
+}
+
+@font-face {
+  font-family: "Satisfy";
+  font-weight: 400;
+  font-style: normal;
+  src: url(../fonts/satisfy/satisfy-regular-webfont.woff);
+}

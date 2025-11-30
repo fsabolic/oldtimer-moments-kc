@@ -1,0 +1,5 @@
+.rundownTexture {
+  --image-url: url(../../assets/images/rundown-texture.png);
+  background-image: var(--image-url);
+  background-size: contain;
+}

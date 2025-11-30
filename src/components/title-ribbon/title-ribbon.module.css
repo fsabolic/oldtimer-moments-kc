@@ -1,0 +1,71 @@
+.titleRibbonContainer {
+  --ribbon-color: #c56969;
+  --edge-w: 10%;
+  --main-h: 85%;
+  --shadow-h: 15%;
+
+  --edge: color-mix(in srgb, var(--ribbon-color) 85%, black);
+  --shadow: color-mix(in srgb, var(--ribbon-color) 60%, black);
+
+  display: flex;
+  justify-content: center;
+  width: 100px;
+  height: 30px;
+}
+
+.edge {
+  max-width: 30px;
+  width: var(--edge-w);
+  height: var(--main-h);
+  background: var(--edge);
+  clip-path: polygon(0 0, 100% 0, 50% 50%, 100% 100%, 0 100%);
+  transform: rotate(0deg);
+  padding-left: 1px;
+  margin-left: -1px;
+
+  padding-right: 1px;
+  margin-right: -1px;
+  z-index: -100;
+}
+
+.edge.leftEdge {
+  transform: rotate(180deg);
+}
+
+.centerPiece {
+  width: calc(100% - 2 * var(--edge-w));
+  display: flex;
+  flex-direction: column;
+}
+
+.centerBanner {
+  height: var(--main-h);
+  display: grid;
+  place-items: center;
+  background: var(--ribbon-color);
+}
+
+.shadowContainer {
+  height: var(--shadow-h);
+  display: flex;
+  justify-content: space-between;
+}
+
+.shadow {
+  width: var(--edge-w);
+  background: linear-gradient(
+    var(--dir),
+    var(--edge) 0% 50%,
+    var(--shadow) 50% 100%
+  );
+}
+
+.shadow.leftShadow {
+  --dir: to bottom right;
+}
+.shadow.rightShadow {
+  --dir: to bottom left;
+}
+
+.titleText {
+}
