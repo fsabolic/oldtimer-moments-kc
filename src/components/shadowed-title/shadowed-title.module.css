@@ -1,0 +1,23 @@
+.shadowedTitle {
+  position: relative;
+  display: inline-block;
+  font-family: "Barlow Condensed";
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-shadow: 4px 4px 0 black;
+}
+
+.shadowedTitle::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  text-shadow: none;
+
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}

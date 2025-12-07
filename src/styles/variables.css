@@ -1,11 +1,30 @@
 @import "fonts.css";
 
 .root {
-  --highlight-primary: red;
-  --highlight-secondary: blue;
-  --highlight-tertiary: green;
-  --highlight-quaternary: yellow;
+  --background-color: #5b4032; /* roasted coffee */
 
-  --text-primary: red;
-  --text-secondary: green;
+  --highlight-primary: #dfdebf;
+  --highlight-secondary: #c68f59; /* caramel */
+  --highlight-tertiary: #8b5e3c; /* saddle brown */
+  --highlight-quaternary: #a3b18a; /* sage green */
+
+  --text-primary: #fcf6e8;
+  --text-secondary: #e0d3b2;
+
+  --hero-title: #dfdebf;
+  --hero-ribbon-text: #3a251b;
+  --ribbon-color: #c68f59;
+
+  --badge-fill: #e6d7a8;
+  --badge-stroke: #3a251b;
+
+  --polaroid-background: #efe1c6;
+  --polaroid-image-background: #8b5e3c;
+
+  /* z-index */
+  --z-index-1: 1;
+  --z-index-2: 10;
+  --z-index-3: 100;
+  --z-index-4: 1000;
+  --z-index-5: 10000;
 }

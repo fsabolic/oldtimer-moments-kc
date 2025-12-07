@@ -1,0 +1,128 @@
+.heroContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.heroContainer::after {
+  content: "";
+  background-image: repeating-conic-gradient(
+      rgb(133, 133, 133) 0%,
+      transparent 0.00003%,
+      transparent 0.0005%,
+      transparent 0.00095%
+    ),
+    repeating-conic-gradient(
+      rgb(133, 133, 133) 0%,
+      transparent 0.00005%,
+      transparent 0.00015%,
+      transparent 0.0009%
+    );
+  height: 1200%;
+  width: 2100%;
+  opacity: 0.15;
+  position: absolute;
+  animation: grain 1s steps(1) infinite;
+  filter: drop-shadow(0px 0px 1px rgb(255, 255, 255));
+}
+
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-1%, -1%);
+  }
+  20% {
+    transform: translate(1%, 1%);
+  }
+  30% {
+    transform: translate(-2%, -2%);
+  }
+  40% {
+    transform: translate(3%, 3%);
+  }
+  50% {
+    transform: translate(-3%, -3%);
+  }
+  60% {
+    transform: translate(4%, 4%);
+  }
+  70% {
+    transform: translate(-4%, -4%);
+  }
+  80% {
+    transform: translate(2%, 2%);
+  }
+  90% {
+    transform: translate(-3%, -3%);
+  }
+}
+
+.bgImage {
+  --bg-image-size: calc(max(100vw, 100vh) * 1.42);
+  width: var(--bg-image-size);
+  height: var(--bg-image-size);
+  animation: spin 60s infinite linear;
+  background-color: var(--background-color);
+}
+
+@keyframes spin {
+  to {
+    rotate: 360deg;
+  }
+}
+
+.centerPiece {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin-top: -100px;
+}
+
+.bigTitle {
+  font-size: 10vmin;
+  text-align: center;
+  width: 100%;
+  color: var(--hero-title);
+  margin-bottom: -100px;
+  z-index: var(--z-index-1);
+}
+
+.ribbonTitle {
+  margin-top: -100px;
+  width: 30%;
+  height: 7%;
+  color: var(--hero-ribbon-text);
+  text-shadow: 1px 1px 0 white;
+  font-family: "Satisfy";
+  font-size: 5vmin;
+}
+
+.centerImage {
+  transform: scale(-1, 1);
+  height: 65%;
+  width: 65%;
+  aspect-ratio: 1 / 1;
+  object-fit: scale-down;
+}
+
+.leftPolaroid {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+}
+.rightPolaroid {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+}

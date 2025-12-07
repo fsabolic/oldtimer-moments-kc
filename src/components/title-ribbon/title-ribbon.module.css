@@ -1,5 +1,4 @@
 .titleRibbonContainer {
-  --ribbon-color: #c56969;
   --edge-w: 10%;
   --main-h: 85%;
   --shadow-h: 15%;
@@ -9,8 +8,6 @@
 
   display: flex;
   justify-content: center;
-  width: 100px;
-  height: 30px;
 }
 
 .edge {
@@ -25,7 +22,6 @@
 
   padding-right: 1px;
   margin-right: -1px;
-  z-index: -100;
 }
 
 .edge.leftEdge {
@@ -36,12 +32,14 @@
   width: calc(100% - 2 * var(--edge-w));
   display: flex;
   flex-direction: column;
+  z-index: var(--z-index-1);
 }
 
 .centerBanner {
   height: var(--main-h);
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: var(--ribbon-color);
 }
 
@@ -65,7 +63,4 @@
 }
 .shadow.rightShadow {
   --dir: to bottom left;
-}
-
-.titleText {
 }

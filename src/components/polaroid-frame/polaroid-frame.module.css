@@ -1,0 +1,20 @@
+.polaroidContainer {
+  background-color: var(--polaroid-background);
+  padding: 10px 10px 30px 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08), 0 8px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+  height: 160px;
+  width: 150px;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 100%;
+  background: var(--polaroid-image-background);
+}
+
+.image {
+  background-color: var(--polaroid-image-background);
+  width: 100%;
+  height: 100%;
+}
