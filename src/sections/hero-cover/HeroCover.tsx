@@ -4,8 +4,8 @@ import classes from "./hero-cover.module.css";
 import BurstBadge from "../../components/burst-badge/BurstBadge";
 import TitleRibbon from "../../components/title-ribbon/TitleRibbon";
 import ShadowedTitle from "../../components/shadowed-title/ShadowedTitle";
-import hypnoSpiral from "/oldtimer-moments-kc/assets/images/hypno-spiral.png";
-import car from "/oldtimer-moments-kc/assets/images/ficho-hero.png";
+import hypnoSpiral from "/assets/images/hypno-spiral.png";
+import car from "/assets/images/ficho-hero.png";
 
 const HeroCover: Component = () => {
   const bigTitleText = "OLDTIMER MOMENTS";
