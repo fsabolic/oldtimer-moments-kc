@@ -1,0 +1,20 @@
+.paperSectionContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: -10px 0;
+}
+
+.paperSectionContent {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+.paperSvg {
+  width: 100%;
+  display: block;
+  line-height: 0;
+}
+
+.topSvg {
+  rotate: 180deg;
+}

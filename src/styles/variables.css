@@ -8,6 +8,8 @@
   --highlight-tertiary: #8b5e3c; /* saddle brown */
   --highlight-quaternary: #a3b18a; /* sage green */
 
+  --title-primary: #6e4200;
+
   --text-primary: #fcf6e8;
   --text-secondary: #e0d3b2;
 
@@ -20,6 +22,8 @@
 
   --polaroid-background: #efe1c6;
   --polaroid-image-background: #8b5e3c;
+
+  --paper-section-svg-color: #e8e2d6;
 
   /* z-index */
   --z-index-1: 1;

@@ -1,7 +1,7 @@
 import { Component, JSX, splitProps } from "solid-js";
 import classes from "./polaroid-frame.module.css";
 import textures from "../../styles/textures.module.css";
-
+import tape from "/assets/images/clear-tape.png";
 interface PolaroidFrameProps
   extends Omit<JSX.HTMLAttributes<HTMLDivElement>, "style"> {
   style?: JSX.CSSProperties;
@@ -9,6 +9,7 @@ interface PolaroidFrameProps
   width?: JSX.CSSProperties["width"];
   height?: JSX.CSSProperties["height"];
   rotate?: number;
+  sideTape?: boolean;
 }
 
 const PolaroidFrame: Component<PolaroidFrameProps> = (props) => {
@@ -19,6 +20,7 @@ const PolaroidFrame: Component<PolaroidFrameProps> = (props) => {
     "rotate",
     "class",
     "style",
+    "sideTape",
   ]);
 
   const mergedStyle: JSX.CSSProperties = {
@@ -29,21 +31,30 @@ const PolaroidFrame: Component<PolaroidFrameProps> = (props) => {
   };
 
   return (
-    <div
-      {...divProps}
-      class={[classes.polaroidContainer, textures.rundownTexture, local.class]
-        .filter(Boolean)
-        .join(" ")}
-      style={mergedStyle}
-    >
-      <div class={classes.imageContainer}>
-        {local.src ? (
-          <img src={local.src} class={classes.image} />
-        ) : (
-          <div class={classes.image} />
+    <>
+      <div
+        {...divProps}
+        class={[classes.polaroidContainer, textures.rundownTexture, local.class]
+          .filter(Boolean)
+          .join(" ")}
+        style={mergedStyle}
+      >
+        {local.sideTape && (
+          <>
+            <img src={tape} class={`${classes.tape} ${classes.topTape}`} />
+
+            <img src={tape} class={`${classes.tape} ${classes.bottomTape}`} />
+          </>
         )}
+        <div class={classes.imageContainer}>
+          {local.src ? (
+            <img src={local.src} class={classes.image} />
+          ) : (
+            <div class={classes.image} />
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,0 +1,39 @@
+.aboutContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5%;
+  gap: 10rem;
+}
+
+.textSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.titleContainer p {
+  font-family: "Satisfy", cursive;
+  font-size: 5rem;
+  color: var(--title-primary);
+  text-shadow: 0.2rem 0.2rem 0 white;
+}
+
+.textContainer p {
+  font-family: "Satisfy", sans-serif;
+  font-size: 1.5rem;
+  text-align: justify;
+}
+
+.imageSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.polaroid {
+  padding: 10px;
+  transform: rotate(2.5deg);
+}

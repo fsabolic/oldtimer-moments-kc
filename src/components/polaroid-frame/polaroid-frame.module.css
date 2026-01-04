@@ -18,3 +18,20 @@
   width: 100%;
   height: 100%;
 }
+
+.tape {
+  position: absolute;
+  transform: rotate(-43deg);
+  width: 30%;
+  height: 10%;
+}
+
+.topTape {
+  top: 5%;
+  left: -10%;
+}
+
+.bottomTape {
+  bottom: 5%;
+  right: -10%;
+}
