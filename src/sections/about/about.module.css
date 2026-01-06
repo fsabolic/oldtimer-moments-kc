@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
   margin: 5%;
-  gap: 10rem;
+  gap: 15%;
 }
 
 .textSection {
@@ -12,6 +12,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex: 1;
 }
 
 .titleContainer p {
@@ -22,15 +23,17 @@
 }
 
 .textContainer p {
-  font-family: "Satisfy", sans-serif;
-  font-size: 1.5rem;
+  font-family: "Slabo27", sans-serif;
+  font-size: 1.25rem;
   text-align: justify;
+  line-height: 2rem;
 }
 
 .imageSection {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex: 1;
 }
 
 .polaroid {

@@ -4,6 +4,7 @@ import PolaroidSeparator from "./components/polaroid-separator/PolaroidSeparator
 import { setWindowWidthGlobal } from "./global-store/WindowWidthGlobal";
 import classes from "./app.module.css";
 import About from "./sections/about/About";
+import Contacts from "./sections/contacts/Contacts";
 
 const App: Component = () => {
   const handler = (event: Event) => {
@@ -21,6 +22,7 @@ const App: Component = () => {
       <HeroCover />
       <PolaroidSeparator />
       <About />
+      <Contacts />
     </div>
   );
 };

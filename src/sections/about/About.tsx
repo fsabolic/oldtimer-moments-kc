@@ -34,7 +34,7 @@ const About: Component = () => {
           </div>
           <div class={classes.imageSection}>
             <PolaroidFrame
-              width={"40rem"}
+              width={"100%"}
               height={"20rem"}
               class={classes.polaroid}
               sideTape={true}
