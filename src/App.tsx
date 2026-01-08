@@ -5,6 +5,7 @@ import { setWindowWidthGlobal } from "./global-store/WindowWidthGlobal";
 import classes from "./app.module.css";
 import About from "./sections/about/About";
 import Contacts from "./sections/contacts/Contacts";
+import Gallery from "./sections/gallery/Gallery";
 
 const App: Component = () => {
   const handler = (event: Event) => {
@@ -22,6 +23,7 @@ const App: Component = () => {
       <HeroCover />
       <PolaroidSeparator />
       <About />
+      <Gallery />
       <Contacts />
     </div>
   );
