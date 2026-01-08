@@ -10,6 +10,7 @@ interface PolaroidFrameProps
   height?: JSX.CSSProperties["height"];
   rotate?: number;
   sideTape?: boolean;
+  topTape?: boolean;
 }
 
 const PolaroidFrame: Component<PolaroidFrameProps> = (props) => {
@@ -21,6 +22,7 @@ const PolaroidFrame: Component<PolaroidFrameProps> = (props) => {
     "class",
     "style",
     "sideTape",
+    "topTape",
   ]);
 
   const mergedStyle: JSX.CSSProperties = {
@@ -41,9 +43,20 @@ const PolaroidFrame: Component<PolaroidFrameProps> = (props) => {
       >
         {local.sideTape && (
           <>
-            <img src={tape} class={`${classes.tape} ${classes.topTape}`} />
+            <img
+              src={tape}
+              class={`${classes.tape} ${classes.leftCornerTape}`}
+            />
 
-            <img src={tape} class={`${classes.tape} ${classes.bottomTape}`} />
+            <img
+              src={tape}
+              class={`${classes.tape} ${classes.rightCornerTape}`}
+            />
+          </>
+        )}
+        {local.topTape && (
+          <>
+            <img src={tape} class={`${classes.tape} ${classes.topTape}`} />
           </>
         )}
         <div class={classes.imageContainer}>

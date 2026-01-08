@@ -1,4 +1,5 @@
 .polaroidContainer {
+  position: relative;
   background-color: var(--polaroid-background);
   padding: 10px 10px 30px 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08), 0 8px 15px rgba(0, 0, 0, 0.05);
@@ -26,12 +27,18 @@
   height: 10%;
 }
 
-.topTape {
+.leftCornerTape {
   top: 5%;
   left: -10%;
 }
 
-.bottomTape {
+.rightCornerTape {
   bottom: 5%;
   right: -10%;
+}
+
+.topTape {
+  left: 35%;
+  top: -3%;
+  transform: rotate(2deg);
 }

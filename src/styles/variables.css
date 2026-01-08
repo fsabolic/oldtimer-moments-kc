@@ -9,7 +9,6 @@
   --highlight-quaternary: #a3b18a; /* sage green */
 
   --title-primary: #6e4200;
-
   --text-primary: #fcf6e8;
   --text-secondary: #e0d3b2;
 
@@ -24,6 +23,13 @@
   --polaroid-image-background: #8b5e3c;
 
   --paper-section-svg-color: #e8e2d6;
+
+  --modal-cancel-button-color: #f0dbb38f;
+  --modal-cancel-button-color-hover: #f0dbb3;
+  --carousel-button-color: #f0dbb3;
+
+  --carousel-button-bg-color: #c68f5944;
+  --carousel-button-bg-color-hover: #c68f5988;
 
   /* z-index */
   --z-index-1: 1;

@@ -1,0 +1,35 @@
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--z-index-4);
+}
+
+.closeButton {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--modal-cancel-button-color);
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease, transform 0.2s ease;
+  z-index: var(--z-index-5);
+}
+
+.closeButton:hover {
+  transform: scale(1.2);
+  color: var(--modal-cancel-button-color-hover);
+}
