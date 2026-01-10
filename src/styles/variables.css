@@ -1,26 +1,27 @@
 @import "fonts.css";
 
 .root {
-  --background-color: #5b4032; /* roasted coffee */
+  --background-color: #5b4032;
 
   --highlight-primary: #dfdebf;
-  --highlight-secondary: #c68f59; /* caramel */
-  --highlight-tertiary: #8b5e3c; /* saddle brown */
-  --highlight-quaternary: #a3b18a; /* sage green */
+  --highlight-secondary: #c68f59;
+  --highlight-tertiary: #8b5e3c;
+  --highlight-quaternary: #a3b18a;
 
   --title-primary: #6e4200;
+  --title-secondary: #3a251b;
   --text-primary: #fcf6e8;
   --text-secondary: #e0d3b2;
 
-  --hero-title: #dfdebf;
-  --hero-ribbon-text: #3a251b;
-  --ribbon-color: #c68f59;
+  --hero-title: var(--highlight-primary);
+  --hero-ribbon-text: var(--title-secondary);
+  --ribbon-color: var(--highlight-secondary);
 
-  --badge-fill: #e6d7a8;
-  --badge-stroke: #3a251b;
+  --hero-badge-fill: #e6d7a8;
+  --hero-badge-stroke: var(--title-secondary);
 
   --polaroid-background: #efe1c6;
-  --polaroid-image-background: #8b5e3c;
+  --polaroid-image-background: var(--highlight-tertiary);
 
   --paper-section-svg-color: #e8e2d6;
 
@@ -30,6 +31,9 @@
 
   --carousel-button-bg-color: #c68f5944;
   --carousel-button-bg-color-hover: #c68f5988;
+
+  --contacts-badge-fill: var(--hero-title);
+  --contacts-badge-stroke: var(--background-color);
 
   /* z-index */
   --z-index-1: 1;

@@ -23,8 +23,8 @@ const HeroCover: Component = () => {
           strokeWidth={10}
           opacity={0.6}
           size="70%"
-          fill="var(--badge-fill)"
-          stroke="var(--badge-stroke)"
+          fill="var(--hero-badge-fill)"
+          stroke="var(--hero-badge-stroke)"
         >
           <img class={classes.centerImage} src={car} />
         </BurstBadge>
