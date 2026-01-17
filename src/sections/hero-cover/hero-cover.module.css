@@ -78,6 +78,11 @@
   }
 }
 
+.handDrawnUnderlineContainer {
+  position: absolute;
+  z-index: var(--z-index-1);
+}
+
 .centerPiece {
   position: absolute;
   display: flex;
@@ -92,7 +97,7 @@
 .bigTitle {
   font-size: 10vmin;
   text-align: center;
-  width: 100%;
+  width: 60%;
   color: var(--hero-title);
   margin-bottom: -100px;
   z-index: var(--z-index-1);
