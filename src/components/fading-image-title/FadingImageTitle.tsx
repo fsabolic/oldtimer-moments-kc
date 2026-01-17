@@ -10,6 +10,8 @@ interface FadingImageTitleProps {
   gradientDirection?: GradientDirection;
   class?: string;
   style?: JSX.CSSProperties;
+  shadowColor?: string;
+  textColor?: string;
 }
 
 const FadingImageTitle: Component<FadingImageTitleProps> = (props) => {
@@ -32,7 +34,8 @@ const FadingImageTitle: Component<FadingImageTitleProps> = (props) => {
       <ShadowedTitle
         text={props.title}
         class={classes.title}
-        shadowColor="white"
+        shadowColor={props.shadowColor ?? "white"}
+        textColor={props.textColor ?? "white"}
       />
     </div>
   );

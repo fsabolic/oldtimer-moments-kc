@@ -23,6 +23,8 @@ const PricingItem: Component<PricingItemProps> = (props) => {
           imageUrl={GalleryBackground}
           gradientDirection="to bottom"
           class={classes.imageWrapper}
+          shadowColor="white"
+          textColor="var(--title-primary)"
         />
         <div class={classes.stampContent}>
           <div class={classes.textBlock}>

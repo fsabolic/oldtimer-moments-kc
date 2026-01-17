@@ -1,0 +1,22 @@
+.dottedPriceRow {
+  display: flex;
+  align-items: baseline;
+  width: 100%;
+  font-family: "Barlow Condensed", cursive;
+  font-size: 1.25rem;
+  color: var(--title-primary);
+}
+
+.title {
+  white-space: nowrap;
+}
+
+.dots {
+  flex: 1;
+  border-bottom: 0.16rem dotted currentColor;
+  margin: 0 0.5rem;
+}
+
+.price {
+  white-space: nowrap;
+}

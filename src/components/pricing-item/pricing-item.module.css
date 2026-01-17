@@ -97,7 +97,7 @@
 }
 
 .title {
-  font-family: "Slabo27";
-  font-size: 1.25rem;
+  font-family: "Barlow Condensed";
+  font-size: 1.3rem;
   color: var(--title-secondary);
 }
