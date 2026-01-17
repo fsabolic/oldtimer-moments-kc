@@ -9,6 +9,7 @@ interface BurstBadgeProps
   stroke?: string;
   strokeWidth?: number;
   opacity?: number;
+  spin?: boolean;
   style?: JSX.CSSProperties;
 }
 
@@ -20,38 +21,39 @@ const BurstBadge: Component<BurstBadgeProps> = (props) => {
     "stroke",
     "strokeWidth",
     "opacity",
+    "spin",
     "children",
     "class",
     "style",
   ]);
 
   const pathD = createMemo(() => {
-    const numPoints = Math.max(0, local.pointCount); // Number of points in the burst
-    const waveAmplitude = 6; // How far each point extends from the base radius
-    const baseRadius = 90; // The base radius of the burst shape without points
+    const numPoints = Math.max(0, local.pointCount);
+    const waveAmplitude = 6;
+    const baseRadius = 90;
 
-    const centerX = 100; // SVG center X coordinate
-    const centerY = 100; // SVG center Y coordinate
+    const centerX = 100;
+    const centerY = 100;
 
-    const totalSteps = 360; // Number of points to calculate around the circle for smoothness
+    const totalSteps = 360;
     let pathData = "";
 
     for (let step = 0; step <= totalSteps; step++) {
-      const angle = (step / totalSteps) * Math.PI * 2; // Angle in radians around the circle
-      const lobeEffect = Math.sin(angle * numPoints) * waveAmplitude; // Sinusoidal modulation for points
+      const angle = (step / totalSteps) * Math.PI * 2;
+      const lobeEffect = Math.sin(angle * numPoints) * waveAmplitude;
 
-      const radiusAtAngle = baseRadius + lobeEffect; // Radius at this point including point bump
-      const x = centerX + Math.cos(angle - Math.PI / 2) * radiusAtAngle; // X coordinate of the point
-      const y = centerY + Math.sin(angle - Math.PI / 2) * radiusAtAngle; // Y coordinate of the point
+      const radiusAtAngle = baseRadius + lobeEffect;
+      const x = centerX + Math.cos(angle - Math.PI / 2) * radiusAtAngle;
+      const y = centerY + Math.sin(angle - Math.PI / 2) * radiusAtAngle;
 
       if (step === 0) {
-        pathData = `M ${x} ${y}`; // Move to the starting point
+        pathData = `M ${x} ${y}`;
       } else {
-        pathData += ` L ${x} ${y}`; // Draw line to next point
+        pathData += ` L ${x} ${y}`;
       }
     }
 
-    return pathData + " Z"; // Close the path
+    return pathData + " Z";
   });
 
   return (
@@ -66,7 +68,7 @@ const BurstBadge: Component<BurstBadgeProps> = (props) => {
     >
       <svg
         viewBox="0 0 200 200"
-        class={styles.svg}
+        class={`${styles.svg} ${local.spin ? styles.spinClass : ""}`}
         aria-hidden="true"
         opacity={local.opacity}
       >

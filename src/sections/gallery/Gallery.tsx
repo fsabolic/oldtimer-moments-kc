@@ -22,6 +22,12 @@ const Gallery: Component = () => {
     setOpenModal(polaroids[index]);
   };
 
+  const transformStyle = () => {
+    return `translate(${Math.random() * 3.125 - 1.5625}rem, ${
+      Math.random() * 3.125 - 1.5625
+    }rem)`;
+  };
+
   return (
     <div class={classes.galleryContainer}>
       <Modal open={!!openModal()} onClose={() => setOpenModal(null)}>
@@ -38,6 +44,7 @@ const Gallery: Component = () => {
             <div
               onClick={() => handlePolaroidClick(galleryItem.index)}
               class={classes.galleryItem}
+              style={{ transform: transformStyle() }}
             >
               <PolaroidFrame
                 rotate={Math.random() * 10 - 5}

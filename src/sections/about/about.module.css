@@ -15,11 +15,10 @@
   flex: 1;
 }
 
-.titleContainer p {
+.title {
   font-family: "Satisfy", cursive;
   font-size: 5rem;
-  color: var(--title-primary);
-  text-shadow: 0.2rem 0.2rem 0 white;
+  font-weight: 100;
 }
 
 .textContainer p {

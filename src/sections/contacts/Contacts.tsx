@@ -60,6 +60,7 @@ const Contacts: Component = () => {
                 size="100%"
                 fill="var(--contacts-badge-fill)"
                 stroke="var(--contacts-badge-stroke)"
+                spin={true}
               >
                 <div class={classes.badge}>
                   <div class={classes.badgeContent}>

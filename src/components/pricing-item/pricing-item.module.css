@@ -1,0 +1,103 @@
+.stampWrapper {
+  width: 350px;
+}
+
+.stamp {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background-color: var(--polaroid-background);
+  border-radius: 0.625rem;
+  margin: 0.25rem;
+  overflow: hidden;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 9.375rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("/assets/images/gallery-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0)
+  );
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.imageTitle {
+  font-family: "Satisfy";
+  font-size: 2.5rem;
+  color: var(--title-primary);
+  position: absolute;
+  line-height: 3rem;
+  text-align: center;
+  padding: 0.625rem;
+}
+
+.stampContent {
+  margin-top: -1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 1.25rem;
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.badgeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.badge {
+  animation: spin 30s linear infinite;
+}
+
+.badgeTitle {
+  font-family: "Satisfy";
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--highlight-tertiary);
+  animation: counterSpin 30s linear infinite;
+}
+
+.benefit {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--highlight-tertiary);
+}
+
+.icon svg {
+  width: 1.875rem;
+  height: 1.875rem;
+}
+
+.title {
+  font-family: "Slabo27";
+  font-size: 1.25rem;
+  color: var(--title-secondary);
+}

@@ -62,29 +62,3 @@
   color: var(--hero-title);
   z-index: var(--z-index-1);
 }
-
-.badgeWrapper {
-  animation: spin 30s linear infinite;
-}
-
-.badgeContent {
-  animation: counterSpin 30s linear infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes counterSpin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(-360deg);
-  }
-}

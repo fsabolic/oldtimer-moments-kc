@@ -3,6 +3,7 @@ import { PaperSection } from "../../components/paper-section/PaperSection";
 import classes from "./about.module.css";
 import textures from "../../styles/textures.module.css";
 import PolaroidFrame from "../../components/polaroid-frame/PolaroidFrame";
+import ShadowedTitle from "../../components/shadowed-title/ShadowedTitle";
 
 const About: Component = () => {
   const title = "O nama";
@@ -24,9 +25,12 @@ const About: Component = () => {
         <div class={classes.aboutContent}>
           <div class={classes.textSection}>
             <div class={classes.textSectionContainer}>
-              <div class={classes.titleContainer}>
-                <p>{title}</p>
-              </div>
+              <ShadowedTitle
+                text={title}
+                textColor={"var(--title-primary)"}
+                shadowColor={"white"}
+                class={classes.title}
+              />
               <div class={classes.textContainer}>
                 <p class={classes.text}>{text}</p>
               </div>
