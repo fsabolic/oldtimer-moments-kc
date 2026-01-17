@@ -4,8 +4,10 @@ import classes from "./about.module.css";
 import textures from "../../styles/textures.module.css";
 import PolaroidFrame from "../../components/polaroid-frame/PolaroidFrame";
 import ShadowedTitle from "../../components/shadowed-title/ShadowedTitle";
+import { ScrollId } from "../../models/ScrollId";
 
 const About: Component = () => {
+  const pageId: ScrollId = "about";
   const title = "O nama";
   const text = `
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
@@ -20,7 +22,10 @@ const About: Component = () => {
                   Suspendisse ac odio nibh.
                 `;
   return (
-    <div class={`${classes.aboutContainer} ${textures.rundownTexture}`}>
+    <div
+      id={pageId}
+      class={`${classes.aboutContainer} ${textures.rundownTexture}`}
+    >
       <PaperSection>
         <div class={classes.aboutContent}>
           <div class={classes.textSection}>

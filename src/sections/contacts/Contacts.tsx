@@ -5,6 +5,7 @@ import gmailIcon from "/assets/images/gmail-icon.svg?raw";
 import whatsappIcon from "/assets/images/whatsapp-icon.svg?raw";
 import BurstBadge from "../../components/burst-badge/BurstBadge";
 import instagramIcon from "/assets/images/insta-icon.svg?raw";
+import { ScrollId } from "../../models/ScrollId";
 
 const EMAIL = "test@gmail.com";
 const PHONE = "000000000";
@@ -38,9 +39,11 @@ const CONTACTS: ContactItem[] = [
 ] as const;
 
 const Contacts: Component = () => {
+  const pageId: ScrollId = "contact";
   const contactUsText = "Kontaktirajte nas!";
+
   return (
-    <div class={classes.contactsContainer}>
+    <div id={pageId} class={classes.contactsContainer}>
       <ShadowedTitle text={contactUsText} class={classes.bigTitle} />
 
       <div class={classes.icons}>

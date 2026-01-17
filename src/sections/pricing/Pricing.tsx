@@ -11,6 +11,7 @@ import FadingImageTitle from "../../components/fading-image-title/FadingImageTit
 import GalleryBackground from "/assets/images/gallery-bg.jpg";
 import DottedPriceRow from "../../components/dotted-price-row/DottedPriceRow";
 import PolaroidFrame from "../../components/polaroid-frame/PolaroidFrame";
+import { ScrollId } from "../../models/ScrollId";
 
 interface DottedPriceItem {
   title: string;
@@ -23,6 +24,7 @@ interface PolaroidItem {
 }
 
 const Pricing: Component<{}> = () => {
+  const pageId: ScrollId = "prices";
   const title = "Paketi i ponude";
   const pricingItems = [
     {
@@ -74,7 +76,7 @@ const Pricing: Component<{}> = () => {
   ];
 
   return (
-    <PaperSection>
+    <PaperSection id={pageId}>
       <div class={classes.pricingContainer}>
         <ShadowedTitle
           text={title}

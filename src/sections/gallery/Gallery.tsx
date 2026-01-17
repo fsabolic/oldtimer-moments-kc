@@ -4,11 +4,14 @@ import PolaroidFrame from "../../components/polaroid-frame/PolaroidFrame";
 import Modal from "../../components/modal/Modal";
 import ImageCarousel from "../../components/image-carousel/ImageCarousel";
 import { Image } from "../../models/Image";
+import { ScrollId } from "../../models/ScrollId";
 
 const POLAROID_COUNT = 20;
 
 const Gallery: Component = () => {
   const [openModal, setOpenModal] = createSignal<Image | null>(null);
+
+  const pageId: ScrollId = "gallery";
 
   const polaroids: Image[] = Array.from(
     { length: POLAROID_COUNT },
@@ -29,7 +32,7 @@ const Gallery: Component = () => {
   };
 
   return (
-    <div class={classes.galleryContainer}>
+    <div id={pageId} class={classes.galleryContainer}>
       <Modal open={!!openModal()} onClose={() => setOpenModal(null)}>
         {openModal() && (
           <ImageCarousel
