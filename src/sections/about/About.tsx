@@ -22,10 +22,7 @@ const About: Component = () => {
                   Suspendisse ac odio nibh.
                 `;
   return (
-    <div
-      id={pageId}
-      class={`${classes.aboutContainer} ${textures.rundownTexture}`}
-    >
+    <div id={pageId} class={textures.rundownTexture}>
       <PaperSection>
         <div class={classes.aboutContent}>
           <div class={classes.textSection}>
