@@ -21,14 +21,14 @@ const App: Component = () => {
   });
 
   return (
-    <div>
+    <>
       <HeroCover />
       <PolaroidSeparator />
       <About />
       <Gallery />
       <Pricing />
       <Contacts />
-    </div>
+    </>
   );
 };
 
