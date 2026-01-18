@@ -3,6 +3,7 @@
   flex-direction: column;
   position: relative;
   margin: -0.625rem 0;
+  z-index: var(--z-index-2);
 }
 
 .paperSectionContent {
