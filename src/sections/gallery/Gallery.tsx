@@ -5,6 +5,7 @@ import Modal from "../../components/modal/Modal";
 import ImageCarousel from "../../components/image-carousel/ImageCarousel";
 import { Image } from "../../models/Image";
 import { ScrollId } from "../../models/ScrollId";
+import textures from "../../styles/textures.module.css";
 
 const POLAROID_COUNT = 20;
 
@@ -32,7 +33,10 @@ const Gallery: Component = () => {
   };
 
   return (
-    <div id={pageId} class={classes.galleryContainer}>
+    <div
+      id={pageId}
+      class={`${textures.floralMaskBg} ${classes.galleryContainer}`}
+    >
       <Modal open={!!openModal()} onClose={() => setOpenModal(null)}>
         {openModal() && (
           <ImageCarousel

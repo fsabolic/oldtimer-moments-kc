@@ -1,0 +1,16 @@
+.container {
+  position: relative;
+  overflow: hidden;
+}
+
+.mask {
+  position: absolute;
+  inset: 0;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  pointer-events: none;
+}

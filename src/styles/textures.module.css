@@ -3,3 +3,25 @@
   background-image: var(--image-url);
   background-size: cover;
 }
+
+.floralMaskBg {
+  position: relative;
+  background-color: var(--gallery-floral-png-bg);
+}
+
+.floralMaskBg::before {
+  --floral-bg: url("/assets/images/floral-pattern.png");
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--gallery-floral-png-mask);
+  -webkit-mask-image: var(--floral-bg);
+  mask-image: var(--floral-bg);
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+  -webkit-mask-size: 40rem 55rem;
+  mask-size: 40rem 55rem;
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+  pointer-events: none;
+}

@@ -1,8 +1,6 @@
 .galleryContainer {
   padding: 120px;
-  background-image: url(/assets/images/gallery-bg.jpg);
-  background-size: 30%;
-  background-repeat: repeat;
+  z-index: var(--z-index-0);
 }
 
 .polaroidContainer {

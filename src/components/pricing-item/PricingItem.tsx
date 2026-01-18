@@ -5,7 +5,7 @@ import ShadowedTitle from "../shadowed-title/ShadowedTitle";
 import BurstBadge from "../burst-badge/BurstBadge";
 import { PricingBenefit } from "../../models/PricingBenefit";
 import texture from "../../styles/textures.module.css";
-import GalleryBackground from "/assets/images/gallery-bg.jpg";
+import FloralPattern from "/assets/images/floral-pattern.png";
 import FadingImageTitle from "../fading-image-title/FadingImageTitle";
 
 interface PricingItemProps {
@@ -20,7 +20,7 @@ const PricingItem: Component<PricingItemProps> = (props) => {
       <div class={`${classes.stamp} ${texture.rundownTexture}`}>
         <FadingImageTitle
           title={props.title}
-          imageUrl={GalleryBackground}
+          imageUrl={FloralPattern}
           gradientDirection="to bottom"
           class={classes.imageWrapper}
           shadowColor="white"

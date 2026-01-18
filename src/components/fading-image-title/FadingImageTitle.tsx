@@ -1,6 +1,7 @@
 import { Component, JSX } from "solid-js";
 import ShadowedTitle from "../shadowed-title/ShadowedTitle";
 import classes from "./fading-image-title.module.css";
+import MaskedImage from "../masked-image/MaskedImage";
 
 type GradientDirection = "to bottom" | "to top" | "to left" | "to right";
 
@@ -27,10 +28,17 @@ const FadingImageTitle: Component<FadingImageTitleProps> = (props) => {
       <div
         class={classes.image}
         style={{
-          "background-image": `url(${props.imageUrl})`,
           ...maskStyle,
         }}
-      />
+      >
+        <MaskedImage
+          src={props.imageUrl}
+          width="100%"
+          height="100%"
+          imageColor="var(--pricing-item-fading-image)"
+          backgroundColor="var(--pricing-item-fading-image-bg)"
+        />
+      </div>
       <ShadowedTitle
         text={props.title}
         class={classes.title}

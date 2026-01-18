@@ -8,7 +8,7 @@ import classes from "./pricing.module.css";
 import ShadowedTitle from "../../components/shadowed-title/ShadowedTitle";
 import PricingItem from "../../components/pricing-item/PricingItem";
 import FadingImageTitle from "../../components/fading-image-title/FadingImageTitle";
-import GalleryBackground from "/assets/images/gallery-bg.jpg";
+import FloralPattern from "/assets/images/floral-pattern.png";
 import DottedPriceRow from "../../components/dotted-price-row/DottedPriceRow";
 import PolaroidFrame from "../../components/polaroid-frame/PolaroidFrame";
 import { ScrollId } from "../../models/ScrollId";
@@ -70,9 +70,9 @@ const Pricing: Component<{}> = () => {
   ];
 
   const polaroidItems: PolaroidItem[] = [
-    { src: GalleryBackground, rotate: -10 },
-    { src: GalleryBackground },
-    { src: GalleryBackground, rotate: 10 },
+    { src: FloralPattern, rotate: -10 },
+    { src: FloralPattern },
+    { src: FloralPattern, rotate: 10 },
   ];
 
   return (
@@ -100,7 +100,7 @@ const Pricing: Component<{}> = () => {
           <div class={classes.additionalsContainer}>
             <FadingImageTitle
               title="Dodatci"
-              imageUrl={GalleryBackground}
+              imageUrl={FloralPattern}
               gradientDirection="to right"
               shadowColor="white"
               textColor="var(--highlight-tertiary)"
