@@ -15,9 +15,9 @@
   position: fixed;
   top: 0;
   right: 0;
-  margin: 10px;
-  width: 56px;
-  height: 56px;
+  margin: 0.625rem;
+  width: 3.5rem;
+  height: 3.5rem;
   display: flex;
   align-items: center;
   justify-content: center;

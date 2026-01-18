@@ -21,7 +21,7 @@ const App: Component = () => {
   });
 
   return (
-    <div class={classes.appContainer}>
+    <div>
       <HeroCover />
       <PolaroidSeparator />
       <About />

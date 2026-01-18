@@ -1,22 +1,20 @@
 .galleryContainer {
-  padding: 120px;
+  padding: 6rem 6rem 8rem 6rem;
   z-index: var(--z-index-0);
 }
 
 .polaroidContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-  gap: 70px 40px;
-  justify-content: center;
-  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: 5rem 5rem;
   width: 100%;
 }
 
 .galleryItem {
   cursor: pointer;
   transition: transform 0.15s ease-in-out;
-  width: 170px;
-  height: 170px;
+  width: 10.5rem;
+  height: 10.5rem;
 }
 
 .galleryItem:hover {
@@ -24,5 +22,7 @@
 }
 
 .polaroidComponent {
-  padding: 10px;
+  padding: 0.625rem;
+  width: 11rem;
+  height: 11rem;
 }

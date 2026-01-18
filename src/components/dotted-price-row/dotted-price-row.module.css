@@ -3,7 +3,7 @@
   align-items: baseline;
   width: 100%;
   font-family: "Barlow Condensed", cursive;
-  font-size: 1.25rem;
+  font-size: var(--font-size-s);
   color: var(--title-primary);
 }
 
@@ -13,7 +13,7 @@
 
 .dots {
   flex: 1;
-  border-bottom: 0.16rem dotted currentColor;
+  border-bottom: 0.125rem dotted currentColor;
   margin: 0 0.5rem;
 }
 

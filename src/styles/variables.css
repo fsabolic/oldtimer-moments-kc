@@ -41,6 +41,14 @@
   --pricing-item-fading-image: #705c49;
   --pricing-item-fading-image-bg: transparent;
 
+  /* font sizes*/
+  --font-size-xs: 0.75rem;
+  --font-size-s: 1.25rem;
+  --font-size-m: 1.75rem;
+  --font-size-l: 2rem;
+  --font-size-xl: 2.5rem;
+  --font-size-xxl: 4rem;
+
   /* z-index */
   --z-index-0: -1;
   --z-index-1: 1;

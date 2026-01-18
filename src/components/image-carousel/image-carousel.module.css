@@ -22,8 +22,8 @@
 }
 .carouselButton {
   position: absolute;
-  width: 48px;
-  height: 48px;
+  width: 3rem;
+  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,7 +46,7 @@
 }
 
 .carouselButtonLeft {
-  left: 16px;
+  left: 1rem;
 }
 
 .carouselButtonLeft > * {
@@ -54,5 +54,5 @@
 }
 
 .carouselButtonRight {
-  right: 16px;
+  right: 1rem;
 }

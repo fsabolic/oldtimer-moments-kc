@@ -62,9 +62,9 @@ export const HandDrawnUnderline: Component<HandDrawnUnderlineProps> = (
           preserveAspectRatio="none"
           class={classes.handDrawnUnderlineSvg}
           style={{
-            bottom: `-${underlineHeight() * 0.6}px`,
-            width: `${metrics().width}px`,
-            height: `${underlineHeight()}px`,
+            bottom: `-${(underlineHeight() * 0.6) / 16}rem`,
+            width: `${metrics().width / 16}rem`,
+            height: `${underlineHeight() / 16}rem`,
           }}
         >
           <use

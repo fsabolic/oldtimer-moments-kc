@@ -17,13 +17,13 @@
 
 .title {
   font-family: "Satisfy", cursive;
-  font-size: 5rem;
+  font-size: var(--font-size-xxl);
   font-weight: 100;
 }
 
 .textContainer p {
   font-family: "Slabo27", sans-serif;
-  font-size: 1.25rem;
+  font-size: var(--font-size-s);
   text-align: justify;
   line-height: 2rem;
 }
@@ -36,6 +36,6 @@
 }
 
 .polaroid {
-  padding: 10px;
+  padding: 0.625rem;
   transform: rotate(2.5deg);
 }

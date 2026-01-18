@@ -26,21 +26,20 @@ const PolaroidSeparator: Component = () => {
     Array.from({ length: polaroidCount() }, (_, index) => ({
       index,
       rotate: randomBetween(ROTATE_RANGE[0], ROTATE_RANGE[1], (index + 1) * 17),
-      bottom: `${randomBetween(
-        BOTTOM_RANGE[0],
-        BOTTOM_RANGE[1],
-        index * 31
-      )}px`,
+      bottom: `${
+        randomBetween(BOTTOM_RANGE[0], BOTTOM_RANGE[1], index * 31) / 16
+      }rem`,
     }))
   );
 
   const getLeft = (index: number) =>
     polaroidCount() <= 1
-      ? `${LEFT_OFFSET}px`
+      ? `${LEFT_OFFSET / 16}rem`
       : `${
-          LEFT_OFFSET +
-          (index / (polaroidCount() - 1)) * (windowWidthGlobal() + 40)
-        }px`;
+          (LEFT_OFFSET +
+            (index / (polaroidCount() - 1)) * (windowWidthGlobal() + 40)) /
+          16
+        }rem`;
 
   return (
     <div class={classes.container}>

@@ -1,5 +1,5 @@
 .stampWrapper {
-  width: 350px;
+  width: 22rem;
 }
 
 .stamp {
@@ -7,7 +7,7 @@
   flex-direction: column;
   gap: 1.25rem;
   background-color: var(--polaroid-background);
-  border-radius: 0.625rem;
+  border-radius: 0.125rem;
   margin: 0.25rem;
   overflow: hidden;
 }
@@ -38,7 +38,7 @@
 
 .badgeTitle {
   font-family: "Satisfy";
-  font-size: 1.75rem;
+  font-size: var(--font-size-m);
   font-weight: 600;
   color: var(--highlight-tertiary);
   animation: counterSpin 30s linear infinite;
@@ -58,12 +58,12 @@
 }
 
 .icon svg {
-  width: 1.875rem;
-  height: 1.875rem;
+  width: 1.75rem;
+  height: 1.75rem;
 }
 
 .title {
   font-family: "Barlow Condensed";
-  font-size: 1.3rem;
+  font-size: var(--font-size-s);
   color: var(--title-secondary);
 }
