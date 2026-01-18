@@ -35,10 +35,10 @@
   --contacts-badge-fill: var(--hero-title);
   --contacts-badge-stroke: var(--background-color);
 
-  --gallery-floral-png-mask: red;
-  --gallery-floral-png-bg: green;
+  --gallery-floral-png-mask: #705c49;
+  --gallery-floral-png-bg: #e6dfcf;
 
-  --pricing-item-fading-image: blue;
+  --pricing-item-fading-image: #705c49;
   --pricing-item-fading-image-bg: transparent;
 
   /* z-index */
