@@ -81,8 +81,8 @@ const Pricing: Component<{}> = () => {
         <ShadowedTitle
           text={title}
           class={classes.title}
-          textColor={"var(--title-primary)"}
-          shadowColor={"white"}
+          textColor={"var(--pricing-title)"}
+          shadowColor={"var(--pricing-title-shadow)"}
         />
         <div class={classes.pricingItems}>
           <For each={pricingItems}>
@@ -102,8 +102,8 @@ const Pricing: Component<{}> = () => {
               title="Dodatci"
               imageUrl={FloralPattern}
               gradientDirection="to right"
-              shadowColor="white"
-              textColor="var(--highlight-tertiary)"
+              shadowColor="var(--pricing-additionals-title-shadow)"
+              textColor="var(--pricing-additionals-title-text-color)"
               class={classes.additionalsTitle}
             />
 

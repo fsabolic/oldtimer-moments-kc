@@ -16,7 +16,7 @@ export function PaperSection(props: DecoratedDivProps) {
     "svgColor",
   ]);
 
-  const color = () => local.svgColor ?? "var(--paper-section-svg-color)";
+  const color = () => local.svgColor ?? "var(--paper-section-svg)";
 
   const modifiedSvg = () => {
     let svg = DecorationSvg;

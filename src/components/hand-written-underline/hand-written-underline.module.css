@@ -3,7 +3,7 @@
   display: inline-block;
   white-space: normal;
   word-wrap: break-word;
-  font-family: "Satisfy", cursive;
+  font-family: var(--font-family-primary);
   font-weight: normal;
   cursor: pointer;
   pointer-events: fill;
@@ -11,27 +11,27 @@
 }
 
 .handDrawnUnderlineSvg {
-  color: var(--hero-ribbon-text);
+  color: var(--underline-stroke);
   position: absolute;
   left: 0;
 }
 
 .handDrawnUnderline .handDrawnUnderlineSvg use {
-  stroke: var(--underline-stroke-color, currentColor);
+  stroke: var(--underline-stroke, currentColor);
   transition: stroke 0.3s ease;
 }
 
 .handDrawnUnderline:hover .handDrawnUnderlineSvg use {
-  stroke: var(--highlight-tertiary);
+  stroke: var(--underline-stroke-hover);
 }
 
 .handDrawnUnderlineText {
   text-align: center;
-  color: var(--hero-ribbon-text);
+  color: var(--underline-text-color);
 }
 
 .handDrawnUnderline:hover .handDrawnUnderlineText {
-  color: var(--highlight-primary);
+  color: var(--underline-text-color-hover);
   transition: color 0.3s ease;
 }
 

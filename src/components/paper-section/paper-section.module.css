@@ -7,7 +7,7 @@
 }
 
 .paperSectionContent {
-  box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.5);
+  box-shadow: var(--paper-section-shadow);
 }
 
 .paperSvg {

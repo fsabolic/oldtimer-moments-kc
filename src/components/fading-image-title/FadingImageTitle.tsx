@@ -35,8 +35,8 @@ const FadingImageTitle: Component<FadingImageTitleProps> = (props) => {
           src={props.imageUrl}
           width="100%"
           height="100%"
-          imageColor="var(--pricing-item-fading-image)"
-          backgroundColor="var(--pricing-item-fading-image-bg)"
+          imageColor="var(--fading-image-title)"
+          backgroundColor="var(--fading-image-bg)"
         />
       </div>
       <ShadowedTitle

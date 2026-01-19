@@ -15,7 +15,7 @@
 }
 
 .title {
-  font-family: "Satisfy";
+  font-family: var(--font-family-primary);
   font-size: var(--font-size-xl);
   color: var(--title-primary);
   line-height: 3rem;

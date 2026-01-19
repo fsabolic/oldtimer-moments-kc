@@ -1,0 +1,43 @@
+.christmas {
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Festive reds & pine greens */
+  --color-earth-50: #fff5f5;
+  --color-earth-100: #f3c6c6;
+  --color-earth-200: #e6a8a8;
+  --color-earth-300: #d98282;
+  --color-earth-400: #b84a4a;
+  --color-earth-500: #8b2e2e;
+  --color-earth-600: #3f6f5a;
+  --color-earth-700: #2f5a47;
+  --color-earth-800: #1f3b30;
+  --color-earth-900: #7a1f1f;
+
+  /* Evergreen accents */
+  --color-accent-200: #9fd3b8;
+  --color-accent-300: #6fb89b;
+  --color-accent-400: #3e8f72;
+
+  /* Warm paper */
+  --color-paper-100: #f5efe6;
+  --color-paper-200: #ebe3d6;
+  --color-paper-300: #e1d8c8;
+
+  --color-grain: #8a8a8a;
+
+  --surface-background: var(--color-earth-700);
+  --surface-paper: var(--color-paper-100);
+  --surface-section: var(--color-paper-200);
+  --surface-overlay: rgba(0, 0, 0, 0.8);
+  --surface-border: rgba(0, 0, 0, 0.35);
+
+  --text-primary: var(--color-earth-50);
+  --text-secondary: var(--color-earth-100);
+  --text-heading-primary: var(--color-earth-900);
+  --text-heading-secondary: var(--color-earth-800);
+  --text-muted: var(--color-earth-600);
+
+  --shadow-soft: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  --shadow-strong: 0 0 1.25rem rgba(0, 0, 0, 0.5);
+}

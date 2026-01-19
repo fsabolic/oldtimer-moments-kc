@@ -23,8 +23,8 @@ const PricingItem: Component<PricingItemProps> = (props) => {
           imageUrl={FloralPattern}
           gradientDirection="to bottom"
           class={classes.imageWrapper}
-          shadowColor="white"
-          textColor="var(--title-primary)"
+          shadowColor="var(--pricing-item-shadow)"
+          textColor="var(--pricing-item-title)"
         />
         <div class={classes.stampContent}>
           <div class={classes.textBlock}>
@@ -40,8 +40,8 @@ const PricingItem: Component<PricingItemProps> = (props) => {
 
           <div class={classes.badgeContainer}>
             <BurstBadge
-              fill="var(--highlight-primary)"
-              stroke="var(--background-color)"
+              fill="var(--pricing-item-badge-fill)"
+              stroke="var(--pricing-item-badge-stroke)"
               strokeWidth={5}
               size="6.25rem"
               pointCount={10}
@@ -50,7 +50,7 @@ const PricingItem: Component<PricingItemProps> = (props) => {
             >
               <ShadowedTitle
                 text={props.price + "€"}
-                shadowColor="white"
+                shadowColor="var(--pricing-item-badge-title-shadow)"
                 class={classes.badgeTitle}
               />
             </BurstBadge>

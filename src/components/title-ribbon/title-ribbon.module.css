@@ -3,8 +3,8 @@
   --main-h: 85%;
   --shadow-h: 15%;
 
-  --edge: color-mix(in srgb, var(--ribbon-color) 85%, black);
-  --shadow: color-mix(in srgb, var(--ribbon-color) 60%, black);
+  --edge: color-mix(in srgb, var(--ribbon-bg) 85%, black);
+  --shadow: color-mix(in srgb, var(--ribbon-bg) 60%, black);
 
   display: flex;
   justify-content: center;
@@ -40,13 +40,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--ribbon-color);
+  background: var(--ribbon-bg);
 }
 
 .shadowContainer {
   height: var(--shadow-h);
   display: flex;
   justify-content: space-between;
+}
+
+.shadow.leftShadow {
+  --dir: to bottom right;
+}
+.shadow.rightShadow {
+  --dir: to bottom left;
 }
 
 .shadow {
@@ -56,11 +63,4 @@
     var(--edge) 0% 50%,
     var(--shadow) 50% 100%
   );
-}
-
-.shadow.leftShadow {
-  --dir: to bottom right;
-}
-.shadow.rightShadow {
-  --dir: to bottom left;
 }

@@ -1,12 +1,11 @@
 import { Component, For } from "solid-js";
 import classes from "./hero-cover.module.css";
-
 import BurstBadge from "../../components/burst-badge/BurstBadge";
 import TitleRibbon from "../../components/title-ribbon/TitleRibbon";
 import ShadowedTitle from "../../components/shadowed-title/ShadowedTitle";
 import hypnoSpiral from "/assets/images/hypno-spiral.png";
 import car from "/assets/images/ficho-hero.png";
-import { HandDrawnUnderline } from "../../components/hand-written-undeline/HandwrittenUndeline";
+import { HandDrawnUnderline } from "../../components/hand-written-underline/HandwrittenUnderline";
 import { ScrollId } from "../../models/ScrollId";
 
 interface Position {
@@ -85,7 +84,6 @@ const HeroCover: Component = () => {
       <img src={hypnoSpiral} class={classes.bgImage} />
       <div class={classes.centerPiece}>
         <ShadowedTitle text={bigTitleText} class={classes.bigTitle} />
-
         <BurstBadge
           class={classes.badge}
           pointCount={12}
@@ -97,7 +95,6 @@ const HeroCover: Component = () => {
         >
           <img class={classes.centerImage} src={car} />
         </BurstBadge>
-
         <TitleRibbon text={ribbonText} class={classes.ribbonTitle} />
       </div>
     </div>

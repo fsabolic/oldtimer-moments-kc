@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  background-color: var(--polaroid-background);
+  background-color: var(--pricing-item-bg);
   border-radius: 0.125rem;
   margin: 0.25rem;
   overflow: hidden;
@@ -37,10 +37,10 @@
 }
 
 .badgeTitle {
-  font-family: "Satisfy";
+  font-family: var(--font-family-primary);
   font-size: var(--font-size-m);
   font-weight: 600;
-  color: var(--highlight-tertiary);
+  color: var(--pricing-item-badge-title);
   animation: counterSpin 30s linear infinite;
 }
 
@@ -54,7 +54,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--highlight-tertiary);
+  color: var(--pricing-item-icon);
 }
 
 .icon svg {
@@ -63,7 +63,7 @@
 }
 
 .title {
-  font-family: "Barlow Condensed";
+  font-family: var(--font-family-secondary);
   font-size: var(--font-size-s);
-  color: var(--title-secondary);
+  color: var(--pricing-item-text);
 }

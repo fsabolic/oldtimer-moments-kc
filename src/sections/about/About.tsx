@@ -29,8 +29,8 @@ const About: Component = () => {
             <div class={classes.textSectionContainer}>
               <ShadowedTitle
                 text={title}
-                textColor={"var(--title-primary)"}
-                shadowColor={"white"}
+                textColor={"var(--about-title)"}
+                shadowColor={"var(--about-title-shadow)"}
                 class={classes.title}
               />
               <div class={classes.textContainer}>

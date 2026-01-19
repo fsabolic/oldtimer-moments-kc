@@ -1,0 +1,86 @@
+.easter {
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Soft pastels */
+  --color-earth-50: #fdfcff;
+  --color-earth-100: #f3eefe;
+  --color-earth-200: #e6ddf7;
+  --color-earth-300: #d4c8ee;
+  --color-earth-400: #b7a6dd;
+  --color-earth-500: #9b84c7;
+  --color-earth-600: #7e6aa8;
+  --color-earth-700: #5f4f82;
+  --color-earth-800: #40365c;
+  --color-earth-900: #7a5aa6;
+
+  /* Spring greens */
+  --color-accent-200: #b9e4c9;
+  --color-accent-300: #92d2ac;
+  --color-accent-400: #5fb887;
+
+  /* Light paper */
+  --color-paper-100: #faf6ff;
+  --color-paper-200: #f1ecfb;
+  --color-paper-300: #e9e3f5;
+
+  --color-grain: #9a9a9a;
+
+  --surface-background: var(--color-earth-700);
+  --surface-paper: var(--color-paper-100);
+  --surface-section: var(--color-paper-200);
+  --surface-overlay: rgba(0, 0, 0, 0.7);
+  --surface-border: rgba(0, 0, 0, 0.28);
+
+  --text-primary: var(--color-earth-50);
+  --text-secondary: var(--color-earth-100);
+  --text-heading-primary: var(--color-earth-900);
+  --text-heading-secondary: var(--color-earth-800);
+  --text-muted: var(--color-earth-600);
+
+  --shadow-soft: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.08);
+  --shadow-strong: 0 0 1.25rem rgba(0, 0, 0, 0.45);
+}
+.easter {
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Soft pastels */
+  --color-earth-50: #fdfcff;
+  --color-earth-100: #f3eefe;
+  --color-earth-200: #e6ddf7;
+  --color-earth-300: #d4c8ee;
+  --color-earth-400: #b7a6dd;
+  --color-earth-500: #9b84c7;
+  --color-earth-600: #7e6aa8;
+  --color-earth-700: #5f4f82;
+  --color-earth-800: #40365c;
+  --color-earth-900: #7a5aa6;
+
+  /* Spring greens */
+  --color-accent-200: #b9e4c9;
+  --color-accent-300: #92d2ac;
+  --color-accent-400: #5fb887;
+
+  /* Light paper */
+  --color-paper-100: #faf6ff;
+  --color-paper-200: #f1ecfb;
+  --color-paper-300: #e9e3f5;
+
+  --color-grain: #9a9a9a;
+
+  --surface-background: var(--color-earth-700);
+  --surface-paper: var(--color-paper-100);
+  --surface-section: var(--color-paper-200);
+  --surface-overlay: rgba(0, 0, 0, 0.7);
+  --surface-border: rgba(0, 0, 0, 0.28);
+
+  --text-primary: var(--color-earth-50);
+  --text-secondary: var(--color-earth-100);
+  --text-heading-primary: var(--color-earth-900);
+  --text-heading-secondary: var(--color-earth-800);
+  --text-muted: var(--color-earth-600);
+
+  --shadow-soft: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.08);
+  --shadow-strong: 0 0 1.25rem rgba(0, 0, 0, 0.45);
+}

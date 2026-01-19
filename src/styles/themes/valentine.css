@@ -1,0 +1,43 @@
+.valentine {
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Romantic reds & pinks */
+  --color-earth-50: #fff0f3;
+  --color-earth-100: #ffd6df;
+  --color-earth-200: #ffb3c4;
+  --color-earth-300: #ff8fa3;
+  --color-earth-400: #ff5d78;
+  --color-earth-500: #e63956;
+  --color-earth-600: #b83247;
+  --color-earth-700: #7a1e2d;
+  --color-earth-800: #4d121c;
+  --color-earth-900: #b0003a;
+
+  /* Soft rose accents */
+  --color-accent-200: #f6b1c3;
+  --color-accent-300: #f28aa8;
+  --color-accent-400: #d95c7a;
+
+  /* Blush paper */
+  --color-paper-100: #fff5f7;
+  --color-paper-200: #ffe9ee;
+  --color-paper-300: #ffdde5;
+
+  --color-grain: #a0a0a0;
+
+  --surface-background: var(--color-earth-700);
+  --surface-paper: var(--color-paper-100);
+  --surface-section: var(--color-paper-200);
+  --surface-overlay: rgba(0, 0, 0, 0.75);
+  --surface-border: rgba(255, 93, 120, 0.35);
+
+  --text-primary: var(--color-earth-50);
+  --text-secondary: var(--color-earth-100);
+  --text-heading-primary: var(--color-earth-900);
+  --text-heading-secondary: var(--color-earth-800);
+  --text-muted: var(--color-earth-600);
+
+  --shadow-soft: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  --shadow-strong: 0 0 1.25rem rgba(0, 0, 0, 0.5);
+}

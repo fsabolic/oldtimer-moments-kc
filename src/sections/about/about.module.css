@@ -16,13 +16,13 @@
 }
 
 .title {
-  font-family: "Satisfy", cursive;
+  font-family: var(--font-family-primary);
   font-size: var(--font-size-xxl);
   font-weight: 100;
 }
 
 .textContainer p {
-  font-family: "Slabo27", sans-serif;
+  font-family: var(--font-family-tertiary);
   font-size: var(--font-size-s);
   text-align: justify;
   line-height: 2rem;

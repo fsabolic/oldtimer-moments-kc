@@ -1,0 +1,43 @@
+.halloween {
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Pumpkin & night tones */
+  --color-earth-50: #fff2e6;
+  --color-earth-100: #ffd9b3;
+  --color-earth-200: #ffbe80;
+  --color-earth-300: #ff9f40;
+  --color-earth-400: #e67300;
+  --color-earth-500: #b35600;
+  --color-earth-600: #663300;
+  --color-earth-700: #2b1a0f;
+  --color-earth-800: #1a1008;
+  --color-earth-900: #ff7a00;
+
+  /* Toxic green accents */
+  --color-accent-200: #c6e86b;
+  --color-accent-300: #9fd136;
+  --color-accent-400: #6ea700;
+
+  /* Aged paper */
+  --color-paper-100: #f4e8d8;
+  --color-paper-200: #e9dcc7;
+  --color-paper-300: #dfd0b8;
+
+  --color-grain: #6f6f6f;
+
+  --surface-background: var(--color-earth-800);
+  --surface-paper: var(--color-paper-100);
+  --surface-section: var(--color-paper-200);
+  --surface-overlay: rgba(0, 0, 0, 0.85);
+  --surface-border: rgba(255, 122, 0, 0.4);
+
+  --text-primary: var(--color-earth-50);
+  --text-secondary: var(--color-earth-100);
+  --text-heading-primary: var(--color-earth-900);
+  --text-heading-secondary: var(--color-earth-400);
+  --text-muted: var(--color-earth-600);
+
+  --shadow-soft: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2);
+  --shadow-strong: 0 0 1.5rem rgba(0, 0, 0, 0.65);
+}

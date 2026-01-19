@@ -1,8 +1,13 @@
-import { onCleanup, onMount, type Component } from "solid-js";
+import {
+  createEffect,
+  createSignal,
+  onCleanup,
+  onMount,
+  type Component,
+} from "solid-js";
 import HeroCover from "./sections/hero-cover/HeroCover";
 import PolaroidSeparator from "./components/polaroid-separator/PolaroidSeparator";
 import { setWindowWidthGlobal } from "./global-store/WindowWidthGlobal";
-import classes from "./app.module.css";
 import About from "./sections/about/About";
 import Contacts from "./sections/contacts/Contacts";
 import Gallery from "./sections/gallery/Gallery";
@@ -18,6 +23,20 @@ const App: Component = () => {
 
   onCleanup(() => {
     window.removeEventListener("resize", handler);
+  });
+
+  const [calcStyle, setCalcStyle] = createSignal("standard");
+
+  createEffect(() => {
+    const body = document.body;
+
+    body.classList.add("variables");
+    body.classList.remove("standard", "compact", "whatever-else");
+    body.classList.add(calcStyle());
+
+    onCleanup(() => {
+      body.classList.remove("variables", calcStyle());
+    });
   });
 
   return (

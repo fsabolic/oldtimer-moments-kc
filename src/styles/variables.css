@@ -1,47 +1,12 @@
 @import "fonts.css";
 
-.root {
-  --background-color: #5b4032;
+.variables {
+  /* font family */
+  --font-family-primary: "Satisfy", cursive;
+  --font-family-secondary: "Barlow Condensed", sans-serif;
+  --font-family-tertiary: "Slabo27", sans-serif;
 
-  --highlight-primary: #dfdebf;
-  --highlight-secondary: #c68f59;
-  --highlight-tertiary: #8b5e3c;
-  --highlight-quaternary: #a3b18a;
-
-  --title-primary: #6e4200;
-  --title-secondary: #3a251b;
-  --text-primary: #fcf6e8;
-  --text-secondary: #e0d3b2;
-
-  --hero-title: var(--highlight-primary);
-  --hero-ribbon-text: var(--title-secondary);
-  --ribbon-color: var(--highlight-secondary);
-
-  --hero-badge-fill: #e6d7a8;
-  --hero-badge-stroke: var(--title-secondary);
-
-  --polaroid-background: #efe1c6;
-  --polaroid-image-background: var(--highlight-tertiary);
-
-  --paper-section-svg-color: #e8e2d6;
-
-  --modal-cancel-button-color: #f0dbb38f;
-  --modal-cancel-button-color-hover: #f0dbb3;
-  --carousel-button-color: #f0dbb3;
-
-  --carousel-button-bg-color: #c68f5944;
-  --carousel-button-bg-color-hover: #c68f5988;
-
-  --contacts-badge-fill: var(--hero-title);
-  --contacts-badge-stroke: var(--background-color);
-
-  --gallery-floral-png-mask: #705c49;
-  --gallery-floral-png-bg: #e6dfcf;
-
-  --pricing-item-fading-image: #705c49;
-  --pricing-item-fading-image-bg: transparent;
-
-  /* font sizes*/
+  /* font sizes */
   --font-size-xs: 0.75rem;
   --font-size-s: 1.25rem;
   --font-size-m: 1.75rem;
@@ -56,4 +21,95 @@
   --z-index-3: 100;
   --z-index-4: 1000;
   --z-index-5: 10000;
+
+  /* COMPONENTS */
+
+  /* stamp */
+  --stamp-bg: var(--surface-background);
+  --stamp-border: var(--surface-border);
+
+  /* ribbon */
+  --ribbon-bg: var(--color-earth-400);
+
+  /* shadowed title */
+  --shadowed-title-shadow: var(--color-black);
+
+  /* pricing item */
+  --pricing-item-title: var(--text-heading-primary);
+  --pricing-item-shadow: var(--color-white);
+  --pricing-item-badge-fill: var(--color-earth-200);
+  --pricing-item-badge-stroke: var(--surface-background);
+  --pricing-item-bg: var(--surface-paper);
+  --pricing-item-badge-title: var(--color-earth-500);
+  --pricing-item-badge-title-shadow: var(--color-white);
+  --pricing-item-icon: var(--color-earth-500);
+  --pricing-item-text: var(--text-heading-secondary);
+
+  /* polaroid */
+  --polaroid-bg: var(--surface-paper);
+  --polaroid-image-bg: var(--color-earth-500);
+  --polaroid-shadow: var(--shadow-soft);
+
+  /* paper section */
+  --paper-section-svg: var(--color-paper-200);
+  --paper-section-shadow: var(--shadow-strong);
+
+  /* modal */
+  --modal-bg: var(--surface-overlay);
+  --modal-cancel-button: var(--color-earth-200);
+  --modal-cancel-button-hover: var(--color-earth-300);
+
+  /* carousel */
+  --carousel-button-text: var(--color-earth-300);
+  --carousel-button-bg: var(--color-earth-400);
+  --carousel-button-bg-hover: var(--color-earth-500);
+
+  /* hand drawn underline */
+  --underline-stroke: var(--hero-ribbon-text);
+  --underline-stroke-hover: var(--color-earth-500);
+  --underline-text-color: var(--hero-ribbon-text);
+  --underline-text-color-hover: var(--color-earth-200);
+
+  /* fading image title */
+  --fading-image-title: var(--color-earth-600);
+  --fading-image-bg: transparent;
+
+  /* dotted price row */
+  --dotted-price-row-text: var(--color-earth-500);
+
+  /* SECTIONS */
+
+  /* hero */
+  --hero-bg: var(--color-earth-700);
+  --hero-title: var(--color-earth-200);
+  --hero-ribbon-text: var(--text-heading-secondary);
+  --hero-ribbon-text-shadow: var(--color-white);
+  --hero-badge-fill: var(--color-earth-300);
+  --hero-badge-stroke: var(--text-heading-secondary);
+  --hero-grain: var(--color-grain);
+  --hero-grain-filter: var(--color-white);
+
+  /* about */
+  --about-title: var(--text-heading-primary);
+  --about-title-shadow: var(--color-white);
+
+  /* gallery */
+  --gallery-floral-png-mask: var(--color-earth-600);
+  --gallery-floral-png-bg: var(--color-paper-300);
+
+  /* pricing */
+  --pricing-title: var(--text-heading-primary);
+  --pricing-title-shadow: var(--color-white);
+  --pricing-additionals-container-shadow: var(--shadow-soft);
+  --pricing-additionals-container-border: var(--color-earth-500);
+  --pricing-additionals-container-bg: var(--surface-paper);
+  --pricing-additionals-title-text-color: var(--color-earth-500);
+  --pricing-additionals-title-shadow: var(--color-white);
+
+  /* contacts */
+  --contacts-title: var(--color-earth-200);
+  --contacts-badge-fill: var(--contacts-title);
+  --contacts-badge-stroke: var(--surface-background);
+  --contacts-badge-shadow: var(--contacts-badge-fill);
+  --contacts-icon: var(--contacts-badge-stroke);
 }

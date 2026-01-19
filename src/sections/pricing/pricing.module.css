@@ -8,7 +8,7 @@
 }
 
 .title {
-  font-family: "Satisfy";
+  font-family: var(--font-family-primary);
   font-size: var(--font-size-xxl);
   font-weight: 100;
 }
@@ -37,11 +37,11 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 0.1875rem solid var(--highlight-tertiary);
-  background-color: var(--polaroid-background);
+  border: 0.1875rem solid var(--pricing-additionals-container-border);
+  background-color: var(--pricing-additionals-container-bg);
   border-radius: 0.125rem;
   overflow: hidden;
-  box-shadow: 0.25rem 0.25rem 0.625rem rgba(0, 0, 0, 0.4);
+  box-shadow: var(--pricing-additionals-container-shadow);
 }
 
 .additionalsTitle {
