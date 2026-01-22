@@ -77,6 +77,11 @@
   /* dotted price row */
   --dotted-price-row-text: var(--color-earth-500);
 
+  /* gallery */
+  --gallery-title: var(--text-heading-primary);
+  --gallery-title-shadow: var(--color-white);
+  --gallery-title-bg: var(--surface-paper);
+
   /* SECTIONS */
 
   /* hero */

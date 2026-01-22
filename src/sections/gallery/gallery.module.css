@@ -1,5 +1,5 @@
 .galleryContainer {
-  padding: 6rem 6rem 8rem 6rem;
+  padding: 3.5rem 6rem 8rem 6rem;
 }
 
 .polaroidContainer {
@@ -9,15 +9,78 @@
   width: 100%;
 }
 
-.galleryItem {
-  cursor: pointer;
-  transition: transform 0.15s ease-in-out;
+.galleryItemWrapper {
   width: 10.5rem;
   height: 10.5rem;
 }
 
+.galleryItem {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.15s ease-in-out;
+}
+
 .galleryItem:hover {
   transform: rotate(-2deg) scale(1.1);
+}
+
+.titleContainer {
+  position: relative;
+  margin-bottom: 4.5rem;
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6rem;
+  width: 25rem;
+  rotate: -4deg;
+}
+
+.tornPaper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--gallery-title-bg);
+
+  -webkit-mask-image: url("/assets/images/torn-paper.png");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  -webkit-mask-position: center;
+
+  mask-image: url("/assets/images/torn-paper.png");
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center;
+  mask-size: 100% 100%;
+}
+.title {
+  font-size: 4rem;
+  font-family: var(--font-family-primary);
+  font-weight: 100;
+}
+
+.tape {
+  position: absolute;
+  width: 25%;
+  height: 30%;
+  z-index: var(--z-index-3);
+}
+
+.leftCornerTape {
+  top: 10%;
+  left: -6%;
+}
+
+.rightCornerTape {
+  bottom: 10%;
+  right: -6%;
+}
+
+.topTape {
+  top: -10%;
+  left: 40%;
 }
 
 .polaroidComponent {

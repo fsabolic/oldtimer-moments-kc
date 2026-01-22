@@ -6,6 +6,8 @@ import ImageCarousel from "../../components/image-carousel/ImageCarousel";
 import { Image } from "../../models/Image";
 import { ScrollId } from "../../models/ScrollId";
 import textures from "../../styles/textures.module.css";
+import tape from "/assets/images/clear-tape.png";
+import ShadowedTitle from "../../components/shadowed-title/ShadowedTitle";
 
 const POLAROID_COUNT = 20;
 
@@ -19,7 +21,7 @@ const Gallery: Component = () => {
     (_, index) => ({
       index,
       image: `https://picsum.photos/${700 + index}/${700 + index}`,
-    })
+    }),
   );
 
   const handlePolaroidClick = (index: number) => {
@@ -37,6 +39,16 @@ const Gallery: Component = () => {
       id={pageId}
       class={`${textures.floralMaskBg} ${classes.galleryContainer}`}
     >
+      <div class={classes.titleContainer}>
+        <img src={tape} class={`${classes.tape} ${classes.topTape}`} />
+        <div class={`${classes.tornPaper} ${textures.rundownTexture}`} />
+        <ShadowedTitle
+          text="Galerija"
+          class={classes.title}
+          shadowColor="var(--gallery-title-shadow)"
+          textColor="var(--gallery-title)"
+        />
+      </div>
       <Modal open={!!openModal()} onClose={() => setOpenModal(null)}>
         {openModal() && (
           <ImageCarousel
@@ -49,16 +61,18 @@ const Gallery: Component = () => {
         <For each={polaroids}>
           {(galleryItem) => (
             <div
-              onClick={() => handlePolaroidClick(galleryItem.index)}
-              class={classes.galleryItem}
+              class={classes.galleryItemWrapper}
               style={{ transform: transformStyle() }}
+              onClick={() => handlePolaroidClick(galleryItem.index)}
             >
-              <PolaroidFrame
-                rotate={Math.random() * 10 - 5}
-                class={classes.polaroidComponent}
-                src={galleryItem.image}
-                topTape={true}
-              />
+              <div class={classes.galleryItem}>
+                <PolaroidFrame
+                  rotate={Math.random() * 10 - 5}
+                  class={classes.polaroidComponent}
+                  src={galleryItem.image}
+                  topTape={true}
+                />
+              </div>
             </div>
           )}
         </For>
