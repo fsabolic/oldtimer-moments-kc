@@ -10,7 +10,7 @@
 }
 
 .floralMaskBg::before {
-  --floral-bg: url("/assets/images/floral-pattern.png");
+  --floral-bg: url("/assets/images/floral-pattern.webp");
   content: "";
   position: absolute;
   inset: 0;
@@ -19,8 +19,8 @@
   mask-image: var(--floral-bg);
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 40rem 55rem;
-  mask-size: 40rem 55rem;
+  -webkit-mask-size: 14.5rem 7rem;
+  mask-size: 14.5rem 7rem;
   -webkit-mask-position: 0 0;
   mask-position: 0 0;
   pointer-events: none;

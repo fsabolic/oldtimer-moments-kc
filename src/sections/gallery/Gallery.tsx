@@ -20,7 +20,7 @@ const Gallery: Component = () => {
     { length: POLAROID_COUNT },
     (_, index) => ({
       index,
-      image: `https://picsum.photos/${700 + index}/${700 + index}`,
+      image: `https://picsum.photos/${200 + index}/${200 + index}`,
     }),
   );
 

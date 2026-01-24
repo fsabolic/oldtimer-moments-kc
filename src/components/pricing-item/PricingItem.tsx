@@ -5,7 +5,7 @@ import ShadowedTitle from "../shadowed-title/ShadowedTitle";
 import BurstBadge from "../burst-badge/BurstBadge";
 import { PricingBenefit } from "../../models/PricingBenefit";
 import texture from "../../styles/textures.module.css";
-import FloralPattern from "/assets/images/floral-pattern.png";
+import FloralPattern from "/assets/images/floral-pattern.webp";
 import FadingImageTitle from "../fading-image-title/FadingImageTitle";
 
 interface PricingItemProps {

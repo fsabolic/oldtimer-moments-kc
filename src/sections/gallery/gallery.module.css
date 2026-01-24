@@ -44,12 +44,12 @@
 
   background-color: var(--gallery-title-bg);
 
-  -webkit-mask-image: url("/assets/images/torn-paper.png");
+  -webkit-mask-image: url("/assets/images/torn-paper.webp");
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: contain;
   -webkit-mask-position: center;
 
-  mask-image: url("/assets/images/torn-paper.png");
+  mask-image: url("/assets/images/torn-paper.webp");
   mask-repeat: no-repeat;
   mask-size: contain;
   mask-position: center;

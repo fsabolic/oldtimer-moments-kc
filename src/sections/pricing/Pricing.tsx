@@ -8,7 +8,7 @@ import classes from "./pricing.module.css";
 import ShadowedTitle from "../../components/shadowed-title/ShadowedTitle";
 import PricingItem from "../../components/pricing-item/PricingItem";
 import FadingImageTitle from "../../components/fading-image-title/FadingImageTitle";
-import FloralPattern from "/assets/images/floral-pattern.png";
+import FloralPattern from "/assets/images/floral-pattern.webp";
 import DottedPriceRow from "../../components/dotted-price-row/DottedPriceRow";
 import PolaroidFrame from "../../components/polaroid-frame/PolaroidFrame";
 import { ScrollId } from "../../models/ScrollId";

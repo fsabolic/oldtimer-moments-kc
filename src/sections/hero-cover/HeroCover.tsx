@@ -3,8 +3,8 @@ import classes from "./hero-cover.module.css";
 import BurstBadge from "../../components/burst-badge/BurstBadge";
 import TitleRibbon from "../../components/title-ribbon/TitleRibbon";
 import ShadowedTitle from "../../components/shadowed-title/ShadowedTitle";
-import hypnoSpiral from "/assets/images/hypno-spiral.png";
-import car from "/assets/images/ficho-hero.png";
+import hypnoSpiral from "/assets/images/hypno-spiral.webp";
+import car from "/assets/images/ficho-hero.webp";
 import { HandDrawnUnderline } from "../../components/hand-written-underline/HandwrittenUnderline";
 import { ScrollId } from "../../models/ScrollId";
 
