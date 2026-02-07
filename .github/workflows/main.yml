@@ -29,12 +29,6 @@ jobs:
         env:
           VITE_PINATA_JWT: ${{ secrets.VITE_PINATA_JWT }}
           VITE_PINATA_GATEWAY: ${{ secrets.VITE_PINATA_GATEWAY }}
-      - run: |
-          if [ -z "$VITE_PINATA_JWT" ]; then
-            echo "JWT is missing"
-          else
-            echo "JWT exists"
-          fi
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
