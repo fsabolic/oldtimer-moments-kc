@@ -6,10 +6,7 @@ import whatsappIcon from "/assets/images/whatsapp-icon.svg?raw";
 import BurstBadge from "../../components/burst-badge/BurstBadge";
 import instagramIcon from "/assets/images/insta-icon.svg?raw";
 import { ScrollId } from "../../models/ScrollId";
-
-const EMAIL = "test@gmail.com";
-const PHONE = "000000000";
-const INSTAGRAM = "oldtimer.moments.koprivnica";
+import { useSkinningStore } from "../../global-store/SkinningStore";
 
 interface ContactItem {
   href: string;
@@ -18,29 +15,30 @@ interface ContactItem {
   external?: boolean;
 }
 
-const CONTACTS: ContactItem[] = [
-  {
-    href: `mailto:${EMAIL}`,
-    ariaLabel: "Send us an email",
-    icon: gmailIcon,
-  },
-  {
-    href: `https://wa.me/${PHONE}`,
-    ariaLabel: "Chat with us on WhatsApp",
-    icon: whatsappIcon,
-    external: true,
-  },
-  {
-    href: `https://www.instagram.com/${INSTAGRAM}`,
-    ariaLabel: "Visit our Instagram profile",
-    icon: instagramIcon,
-    external: true,
-  },
-] as const;
-
 const Contacts: Component = () => {
+  const contactsSkinningStore = useSkinningStore().contactsSkinning.textJson;
   const pageId: ScrollId = "contact";
-  const contactUsText = "Kontaktirajte nas!";
+  const contactUsText = contactsSkinningStore.title;
+
+  const CONTACTS: ContactItem[] = [
+    {
+      href: `mailto:${contactsSkinningStore.contacts.email}`,
+      ariaLabel: "Send us an email",
+      icon: gmailIcon,
+    },
+    {
+      href: `https://wa.me/${contactsSkinningStore.contacts.whatsapp}`,
+      ariaLabel: "Chat with us on WhatsApp",
+      icon: whatsappIcon,
+      external: true,
+    },
+    {
+      href: `https://www.instagram.com/${contactsSkinningStore.contacts.instagram}`,
+      ariaLabel: "Visit our Instagram profile",
+      icon: instagramIcon,
+      external: true,
+    },
+  ] as const;
 
   return (
     <div id={pageId} class={classes.contactsContainer}>

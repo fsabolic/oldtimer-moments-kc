@@ -8,13 +8,16 @@ import { ScrollId } from "../../models/ScrollId";
 import textures from "../../styles/textures.module.css";
 import tape from "/assets/images/clear-tape.png";
 import ShadowedTitle from "../../components/shadowed-title/ShadowedTitle";
+import { useSkinningStore } from "../../global-store/SkinningStore";
 
 const POLAROID_COUNT = 20;
 
 const Gallery: Component = () => {
+  const gallerySkinningStore = useSkinningStore().gallerySkinning.textJson;
   const [openModal, setOpenModal] = createSignal<Image | null>(null);
 
   const pageId: ScrollId = "gallery";
+  const title = gallerySkinningStore.title;
 
   const polaroids: Image[] = Array.from(
     { length: POLAROID_COUNT },
@@ -43,7 +46,7 @@ const Gallery: Component = () => {
         <img src={tape} class={`${classes.tape} ${classes.topTape}`} />
         <div class={`${classes.tornPaper} ${textures.rundownTexture}`} />
         <ShadowedTitle
-          text="Galerija"
+          text={title}
           class={classes.title}
           shadowColor="var(--gallery-title-shadow)"
           textColor="var(--gallery-title)"

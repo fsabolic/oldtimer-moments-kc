@@ -5,22 +5,13 @@ import textures from "../../styles/textures.module.css";
 import PolaroidFrame from "../../components/polaroid-frame/PolaroidFrame";
 import ShadowedTitle from "../../components/shadowed-title/ShadowedTitle";
 import { ScrollId } from "../../models/ScrollId";
+import { useSkinningStore } from "../../global-store/SkinningStore";
 
 const About: Component = () => {
+  const aboutSkinningStore = useSkinningStore().aboutSkinning.textJson;
   const pageId: ScrollId = "about";
-  const title = "O nama";
-  const text = `
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  congue nisi eu ligula dictum vehicula. Sed et pharetra odio,
-                  ac tincidunt est. Quisque laoreet varius mi, id molestie sem
-                  ultrices eget. Sed elementum aliquet nisl eget feugiat. In
-                  dictum scelerisque eros, id blandit erat congue nec. Sed
-                  ultrices at lectus pulvinar vestibulum. Suspendisse ut viverra
-                  orci. Aenean eu molestie ante. Donec nec imperdiet eros. In id
-                  mauris odio. Aliquam tristique, ipsum sed consequat aliquam,
-                  sem mi mollis enim, eu dignissim turpis ipsum in enim.
-                  Suspendisse ac odio nibh.
-                `;
+  const title = aboutSkinningStore.title;
+  const text = aboutSkinningStore.description;
   return (
     <div id={pageId} class={textures.rundownTexture}>
       <PaperSection>

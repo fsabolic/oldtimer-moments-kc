@@ -1,9 +1,5 @@
 import { Component, For } from "solid-js";
 import { PaperSection } from "../../components/paper-section/PaperSection";
-import decorationIcon from "/assets/images/decoration-icon.svg?raw";
-import locationIcon from "/assets/images/location-icon.svg?raw";
-import timeIcon from "/assets/images/time-icon.svg?raw";
-import carIcon from "/assets/images/car-icon.svg?raw";
 import classes from "./pricing.module.css";
 import ShadowedTitle from "../../components/shadowed-title/ShadowedTitle";
 import PricingItem from "../../components/pricing-item/PricingItem";
@@ -12,6 +8,7 @@ import FloralPattern from "/assets/images/floral-pattern.webp";
 import DottedPriceRow from "../../components/dotted-price-row/DottedPriceRow";
 import PolaroidFrame from "../../components/polaroid-frame/PolaroidFrame";
 import { ScrollId } from "../../models/ScrollId";
+import { useSkinningStore } from "../../global-store/SkinningStore";
 
 interface DottedPriceItem {
   title: string;
@@ -24,50 +21,30 @@ interface PolaroidItem {
 }
 
 const Pricing: Component<{}> = () => {
+  const pricingSkinningStore = useSkinningStore().pricingSkinning.textJson;
   const pageId: ScrollId = "prices";
-  const title = "Paketi i ponude";
-  const pricingItems = [
-    {
-      title: "Classic shoot",
-      price: "120",
-      benefits: [
-        { title: "Dopremanje 30km od lokacije", icon: locationIcon },
-        { title: "1 sat korištenja vozila", icon: timeIcon },
-        { title: "Bez vožnje", icon: carIcon },
-        { title: "Osnovne dekoracije", icon: decorationIcon },
-      ],
-    },
-    {
-      title: "Moments in motion",
-      price: "320",
-      benefits: [
-        { title: "Dopremanje 50km od lokacije", icon: locationIcon },
-        { title: "3 sata korištenja vozila", icon: timeIcon },
-        { title: "Vožnja", icon: carIcon },
-        { title: "Osnovne dekoracije + limenke", icon: decorationIcon },
-      ],
-    },
-    {
-      title: "Full retro experience",
-      price: "600",
-      benefits: [
-        { title: "Dopremanje 100km od lokacije", icon: locationIcon },
-        { title: "Do 8 sati korištenja vozila", icon: timeIcon },
-        { title: "Vožnja", icon: carIcon },
-        {
-          title: "Osnovne dekoracije + limenke + šampanjac",
-          icon: decorationIcon,
-        },
-      ],
-    },
-  ];
+  const title = pricingSkinningStore.title;
+  const pricingItems = pricingSkinningStore.packages.map((item) => {
+    return {
+      title: item.name,
+      price: item.price,
+      benefits: item.benefits.map((benefit) => {
+        return {
+          title: benefit,
+          icon: "",
+        };
+      }),
+    };
+  });
 
-  const dottedPriceItems: DottedPriceItem[] = [
-    { title: "Kofer", price: "50€" },
-    { title: "Košara", price: "30€" },
-    { title: "Limenke", price: "20€" },
-    { title: "Svaki dodatan kilometar", price: "0,70€/km" },
-  ];
+  const additionalTitle = pricingSkinningStore.extras.title;
+  const dottedPriceItems: DottedPriceItem[] =
+    pricingSkinningStore.extras.items.map((item) => {
+      return {
+        title: item.name,
+        price: item.price,
+      };
+    });
 
   const polaroidItems: PolaroidItem[] = [
     { src: FloralPattern, rotate: -10 },
@@ -99,7 +76,7 @@ const Pricing: Component<{}> = () => {
         <div class={classes.additionalsWrapper}>
           <div class={classes.additionalsContainer}>
             <FadingImageTitle
-              title="Dodatci"
+              title={additionalTitle}
               imageUrl={FloralPattern}
               gradientDirection="to right"
               shadowColor="var(--pricing-additionals-title-shadow)"
