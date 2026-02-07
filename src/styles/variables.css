@@ -84,6 +84,13 @@
 
   /* SECTIONS */
 
+  /* loading screen */
+  --loading-screen-bg: var(--color-earth-700);
+  --loading-screen-text-color: var(--text-heading-primary);
+  --loading-screen-text-font-family: var(--font-family-primary);
+  --loading-screen-badge-fill: var(--color-earth-200);
+  --loading-screen-badge-stroke: var(--color-earth-500);
+
   /* hero */
   --hero-bg: var(--color-earth-700);
   --hero-title: var(--color-earth-200);

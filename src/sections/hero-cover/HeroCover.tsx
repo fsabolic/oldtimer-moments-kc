@@ -7,6 +7,7 @@ import hypnoSpiral from "/assets/images/hypno-spiral.webp";
 import car from "/assets/images/ficho-hero.webp";
 import { HandDrawnUnderline } from "../../components/hand-written-underline/HandwrittenUnderline";
 import { ScrollId } from "../../models/ScrollId";
+import { useSkinningStore } from "../../global-store/SkinningStore";
 
 interface Position {
   top?: string;
@@ -23,27 +24,28 @@ interface UnderlineText {
 }
 
 const HeroCover: Component = () => {
-  const bigTitleText = "OLDTIMER MOMENTS";
-  const ribbonText = "Koprivnica";
+  const skinning = useSkinningStore();
+  const bigTitleText = skinning.heroSkinning.textJson.title;
+  const ribbonText = skinning.heroSkinning.textJson.subtitle;
 
   const underlinePositions: UnderlineText[] = [
     {
-      text: "Malo o nama",
+      text: skinning.heroSkinning.textJson.navigation.aboutUs,
       position: { top: "10%", left: "10%", rotate: "-20deg" },
       scrollId: "about",
     },
     {
-      text: "Slike i uspomene",
+      text: skinning.heroSkinning.textJson.navigation.gallery,
       position: { top: "10%", right: "10%", rotate: "20deg" },
       scrollId: "gallery",
     },
     {
-      text: "Naša ponuda",
+      text: skinning.heroSkinning.textJson.navigation.pricing,
       position: { bottom: "20%", left: "10%", rotate: "20deg" },
       scrollId: "prices",
     },
     {
-      text: "Javite nam se",
+      text: skinning.heroSkinning.textJson.navigation.contactUs,
       position: { bottom: "20%", right: "10%", rotate: "-20deg" },
       scrollId: "contact",
     },

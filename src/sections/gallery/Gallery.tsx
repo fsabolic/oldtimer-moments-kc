@@ -8,21 +8,22 @@ import { ScrollId } from "../../models/ScrollId";
 import textures from "../../styles/textures.module.css";
 import tape from "/assets/images/clear-tape.png";
 import ShadowedTitle from "../../components/shadowed-title/ShadowedTitle";
-
-const POLAROID_COUNT = 20;
+import { useSkinningStore } from "../../global-store/SkinningStore";
+import { getApiImage } from "../../util/getApiImage";
 
 const Gallery: Component = () => {
+  const gallerySkinning = useSkinningStore().gallerySkinning;
+  const gallerySkinningImages = gallerySkinning.imageIds;
+  const gallerySkinningText = gallerySkinning.textJson;
   const [openModal, setOpenModal] = createSignal<Image | null>(null);
 
   const pageId: ScrollId = "gallery";
+  const title = gallerySkinningText.title;
 
-  const polaroids: Image[] = Array.from(
-    { length: POLAROID_COUNT },
-    (_, index) => ({
-      index,
-      image: `https://picsum.photos/${200 + index}/${200 + index}`,
-    }),
-  );
+  const polaroids = gallerySkinningImages.map((imageId, index) => ({
+    index,
+    image: getApiImage(imageId, 200, 200),
+  }));
 
   const handlePolaroidClick = (index: number) => {
     setOpenModal(polaroids[index]);
@@ -43,7 +44,7 @@ const Gallery: Component = () => {
         <img src={tape} class={`${classes.tape} ${classes.topTape}`} />
         <div class={`${classes.tornPaper} ${textures.rundownTexture}`} />
         <ShadowedTitle
-          text="Galerija"
+          text={title}
           class={classes.title}
           shadowColor="var(--gallery-title-shadow)"
           textColor="var(--gallery-title)"

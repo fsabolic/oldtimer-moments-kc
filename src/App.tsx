@@ -12,8 +12,12 @@ import About from "./sections/about/About";
 import Contacts from "./sections/contacts/Contacts";
 import Gallery from "./sections/gallery/Gallery";
 import Pricing from "./sections/pricing/Pricing";
+import { createSkinning } from "./hooks/createSkinning";
+import LoadingScreen from "./sections/loading-screen/LoadingScreen";
 
 const App: Component = () => {
+  const { skinningLoaded } = createSkinning();
+
   const handler = (event: Event) => {
     setWindowWidthGlobal(window.innerWidth);
   };
@@ -41,12 +45,18 @@ const App: Component = () => {
 
   return (
     <>
-      <HeroCover />
-      <PolaroidSeparator />
-      <About />
-      <Gallery />
-      <Pricing />
-      <Contacts />
+      {!skinningLoaded() ? (
+        <LoadingScreen />
+      ) : (
+        <>
+          <HeroCover />
+          <PolaroidSeparator />
+          <About />
+          <Gallery />
+          <Pricing />
+          <Contacts />
+        </>
+      )}
     </>
   );
 };

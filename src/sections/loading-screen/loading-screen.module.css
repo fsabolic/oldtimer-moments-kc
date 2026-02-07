@@ -1,0 +1,26 @@
+.loadingScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--loading-screen-bg);
+}
+
+.loadingCenterPiece {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinningBadge {
+  position: absolute;
+}
+
+.loadingText {
+  font-family: var(--loading-screen-text-font-family);
+  color: var(--loading-screen-text-color);
+  font-size: 2rem;
+  margin-left: 1rem;
+  z-index: var(--z-index-1);
+  text-align: center;
+}
