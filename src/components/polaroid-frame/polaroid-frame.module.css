@@ -24,6 +24,7 @@
   transform: rotate(-43deg);
   width: 30%;
   height: 10%;
+  z-index: var(--z-index-1);
 }
 
 .leftCornerTape {

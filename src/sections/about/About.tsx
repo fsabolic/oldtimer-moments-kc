@@ -6,12 +6,18 @@ import PolaroidFrame from "../../components/polaroid-frame/PolaroidFrame";
 import ShadowedTitle from "../../components/shadowed-title/ShadowedTitle";
 import { ScrollId } from "../../models/ScrollId";
 import { useSkinningStore } from "../../global-store/SkinningStore";
+import { getApiImage } from "../../util/getApiImage";
 
 const About: Component = () => {
-  const aboutSkinningStore = useSkinningStore().aboutSkinning.textJson;
+  const aboutSkinning = useSkinningStore().aboutSkinning;
+  const aboutSkinningText = aboutSkinning.textJson;
+  const aboutSkinningImage =
+    aboutSkinning.imageIds.length > 0 ? aboutSkinning.imageIds[0] : "";
+
   const pageId: ScrollId = "about";
-  const title = aboutSkinningStore.title;
-  const text = aboutSkinningStore.description;
+  const title = aboutSkinningText.title;
+  const text = aboutSkinningText.description;
+
   return (
     <div id={pageId} class={textures.rundownTexture}>
       <PaperSection>
@@ -35,6 +41,7 @@ const About: Component = () => {
               height={"20rem"}
               class={classes.polaroid}
               sideTape={true}
+              src={getApiImage(aboutSkinningImage)}
             />
           </div>
         </div>

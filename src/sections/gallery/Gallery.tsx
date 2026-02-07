@@ -9,23 +9,21 @@ import textures from "../../styles/textures.module.css";
 import tape from "/assets/images/clear-tape.png";
 import ShadowedTitle from "../../components/shadowed-title/ShadowedTitle";
 import { useSkinningStore } from "../../global-store/SkinningStore";
-
-const POLAROID_COUNT = 20;
+import { getApiImage } from "../../util/getApiImage";
 
 const Gallery: Component = () => {
-  const gallerySkinningStore = useSkinningStore().gallerySkinning.textJson;
+  const gallerySkinning = useSkinningStore().gallerySkinning;
+  const gallerySkinningImages = gallerySkinning.imageIds;
+  const gallerySkinningText = gallerySkinning.textJson;
   const [openModal, setOpenModal] = createSignal<Image | null>(null);
 
   const pageId: ScrollId = "gallery";
-  const title = gallerySkinningStore.title;
+  const title = gallerySkinningText.title;
 
-  const polaroids: Image[] = Array.from(
-    { length: POLAROID_COUNT },
-    (_, index) => ({
-      index,
-      image: `https://picsum.photos/${200 + index}/${200 + index}`,
-    }),
-  );
+  const polaroids = gallerySkinningImages.map((imageId, index) => ({
+    index,
+    image: getApiImage(imageId, 200, 200),
+  }));
 
   const handlePolaroidClick = (index: number) => {
     setOpenModal(polaroids[index]);
