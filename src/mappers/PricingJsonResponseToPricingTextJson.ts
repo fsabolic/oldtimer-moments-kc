@@ -4,23 +4,34 @@ import { PricingTextJson } from "../models/text-jsons/PricingTextJson";
 export const mapPricingJsonResponseToPricingTextJson = (
   pricingJsonResponse: PricingJsonResponse,
 ): PricingTextJson => {
+  const notes: string[] = [];
+  const packages = pricingJsonResponse.paketi.map((item) => {
+    return {
+      name: item.ime,
+      benefits: item.pogodnosti.map((benefit) => {
+        if (benefit.napomena) {
+          notes.push(benefit.napomena);
+          return benefit.pogodnost + "*".repeat(notes.length);
+        }
+        return benefit.pogodnost;
+      }),
+      price: item.cijena,
+    };
+  });
+  const extras = pricingJsonResponse.dodatci.stavke.map((item) => {
+    return {
+      name: item.naziv,
+      price: item.cijena,
+    };
+  });
+
   return {
     title: pricingJsonResponse.naslov,
-    packages: pricingJsonResponse.paketi.map((item) => {
-      return {
-        name: item.ime,
-        benefits: item.pogodnosti,
-        price: item.cijena,
-      };
-    }),
+    packages,
     extras: {
       title: pricingJsonResponse.dodatci.naslov,
-      items: pricingJsonResponse.dodatci.stavke.map((item) => {
-        return {
-          name: item.naziv,
-          price: item.cijena,
-        };
-      }),
+      items: extras,
     },
+    footnotes: notes,
   };
 };

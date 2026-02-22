@@ -2,7 +2,7 @@ export interface PricingJsonResponse {
   naslov: string;
   paketi: {
     ime: string;
-    pogodnosti: string[];
+    pogodnosti: { pogodnost: string; napomena: string }[];
     cijena: string;
   }[];
   dodatci: {

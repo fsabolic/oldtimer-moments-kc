@@ -6,7 +6,7 @@
 
 .floralMaskBg {
   position: relative;
-  background-color: var(--gallery-floral-png-bg);
+  background-color: var(--floral-png-bg);
 }
 
 .floralMaskBg::before {
@@ -14,7 +14,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-color: var(--gallery-floral-png-mask);
+  background-color: var(--floral-png-mask);
   -webkit-mask-image: var(--floral-bg);
   mask-image: var(--floral-bg);
   -webkit-mask-repeat: repeat;

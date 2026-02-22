@@ -2,58 +2,39 @@ import { Component, For } from "solid-js";
 import { PaperSection } from "../../components/paper-section/PaperSection";
 import classes from "./pricing.module.css";
 import ShadowedTitle from "../../components/shadowed-title/ShadowedTitle";
-import PricingItem from "../../components/pricing-item/PricingItem";
-import FadingImageTitle from "../../components/fading-image-title/FadingImageTitle";
-import FloralPattern from "/assets/images/floral-pattern.webp";
-import DottedPriceRow from "../../components/dotted-price-row/DottedPriceRow";
-import PolaroidFrame from "../../components/polaroid-frame/PolaroidFrame";
 import { ScrollId } from "../../models/ScrollId";
 import { useSkinningStore } from "../../global-store/SkinningStore";
-
-interface DottedPriceItem {
-  title: string;
-  price: string;
-}
-
-interface PolaroidItem {
-  src: string;
-  rotate?: number;
-}
+import FlipCard from "../../components/flip-card/FlipCard";
+import { windowWidthGlobal } from "../../global-store/WindowWidthGlobal";
+import { bandColors } from "../../styles/band-colors";
 
 const Pricing: Component<{}> = () => {
-  const pricingSkinningStore = useSkinningStore().pricingSkinning.textJson;
+  const pricingSkinningText = useSkinningStore().pricingSkinning.textJson;
+  const pricingSkinningImages = useSkinningStore().pricingSkinning.imageIds;
   const pageId: ScrollId = "prices";
-  const title = pricingSkinningStore.title;
-  const pricingItems = pricingSkinningStore.packages.map((item) => {
-    return {
-      title: item.name,
-      price: item.price,
-      benefits: item.benefits.map((benefit) => {
-        return {
-          title: benefit,
-          icon: "",
-        };
-      }),
-    };
-  });
 
-  const additionalTitle = pricingSkinningStore.extras.title;
-  const dottedPriceItems: DottedPriceItem[] =
-    pricingSkinningStore.extras.items.map((item) => {
-      return {
-        title: item.name,
-        price: item.price,
-      };
-    });
+  const flipCardConfig = {
+    width: 300,
+    height: 400,
+    defaultScalingFactor: 1.35,
+    computedScaling: () => {
+      return flipCardConfig.width * 2 * flipCardConfig.defaultScalingFactor >
+        windowWidthGlobal()
+        ? (flipCardConfig.width * 2) / windowWidthGlobal()
+        : flipCardConfig.defaultScalingFactor;
+    },
+    rotation: () => (Math.random() * 2 - 1) * 15,
+    gap: 5,
+  };
 
-  const polaroidItems: PolaroidItem[] = [
-    { src: FloralPattern, rotate: -10 },
-    { src: FloralPattern },
-    { src: FloralPattern, rotate: 10 },
-  ];
+  const title = pricingSkinningText.title;
+
+  const pricingItems = pricingSkinningText.packages;
+  const pricingExtras = pricingSkinningText.extras;
+  const pricingFootnotes = pricingSkinningText.footnotes;
 
   return (
-    <PaperSection id={pageId}>
+    <PaperSection id={pageId} class={classes.pricingSection}>
       <div class={classes.pricingContainer}>
         <ShadowedTitle
           text={title}
@@ -61,51 +42,53 @@ const Pricing: Component<{}> = () => {
           textColor={"var(--pricing-title)"}
           shadowColor={"var(--pricing-title-shadow)"}
         />
-        <div class={classes.pricingItems}>
+
+        <div
+          class={classes.pricingItemsContainer}
+          style={{
+            "--needed-space": `${flipCardConfig.width * flipCardConfig.defaultScalingFactor * flipCardConfig.computedScaling()}px`,
+          }}
+        >
           <For each={pricingItems}>
-            {(item) => (
-              <PricingItem
-                title={item.title}
-                benefits={item.benefits}
-                price={item.price}
-              />
-            )}
+            {(item, index) => {
+              return (
+                <div
+                  class={classes.flipCardContainer}
+                  style={{
+                    "--rotation": `${flipCardConfig.rotation()}deg`,
+                  }}
+                >
+                  <FlipCard
+                    title={item.name}
+                    width={`${flipCardConfig.width}px`}
+                    height={`${flipCardConfig.height}px`}
+                    scalingFactor={flipCardConfig.computedScaling()}
+                    packages={item}
+                    extras={pricingExtras}
+                    bandColor={bandColors[index() % bandColors.length]}
+                    image={
+                      pricingSkinningImages[
+                        index() % pricingSkinningImages.length
+                      ]
+                    }
+                  />
+                </div>
+              );
+            }}
           </For>
         </div>
+      </div>
 
-        <div class={classes.additionalsWrapper}>
-          <div class={classes.additionalsContainer}>
-            <FadingImageTitle
-              title={additionalTitle}
-              imageUrl={FloralPattern}
-              gradientDirection="to right"
-              shadowColor="var(--pricing-additionals-title-shadow)"
-              textColor="var(--pricing-additionals-title-text-color)"
-              class={classes.additionalsTitle}
-            />
-
-            <div class={classes.additionalsContent}>
-              <For each={dottedPriceItems}>
-                {(item) => (
-                  <DottedPriceRow title={item.title} price={item.price} />
-                )}
-              </For>
-            </div>
-          </div>
-          <div class={classes.additionalsImages}>
-            <For each={polaroidItems}>
-              {(item) => (
-                <PolaroidFrame
-                  topTape
-                  src={item.src}
-                  width={"13rem"}
-                  height={"13rem"}
-                  rotate={item.rotate}
-                />
-              )}
-            </For>
-          </div>
-        </div>
+      <div class={classes.footnotes}>
+        <For each={pricingFootnotes}>
+          {(footnote, index) => {
+            return (
+              <p
+                class={classes.footnote}
+              >{`${"*".repeat(index() + 1)} ${footnote}`}</p>
+            );
+          }}
+        </For>
       </div>
     </PaperSection>
   );
