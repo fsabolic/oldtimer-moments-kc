@@ -1,0 +1,221 @@
+/*--- C A R D ---*/
+.card {
+  --width: 18.75rem;
+  --height: 25rem;
+  --edge-size: 0.125rem;
+  --scaling-factor: 1.75;
+  --border-radius: 0.375rem;
+  font-family: var(--font-family-secondary);
+  width: var(--width);
+  height: var(--height);
+  background: color-mix(
+    in srgb,
+    var(--bg-color) 10%,
+    var(--flip-card-inside-right-bg)
+  );
+  transform-style: preserve-3d;
+  transform: perspective(125rem);
+  transition: 1s;
+  position: relative;
+  box-shadow:
+    inset 18.75rem 0 3.125rem rgba(0, 0, 0, 0.5),
+    1.25rem 0 3.75rem rgba(0, 0, 0, 0.5);
+  border-radius: var(--border-radius);
+  border-top: var(--edge-size) solid var(--flip-card-top-edge);
+  border-right: var(--edge-size) solid var(--flip-card-right-edge);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: perspective(125rem) rotate(0deg) scale(var(--scaling-factor))
+      translateX(calc(var(--width) / 2));
+    box-shadow:
+      inset 1.25rem 0 3.125rem rgba(0, 0, 0, 0.5),
+      0 0.625rem 6.25rem rgba(0, 0, 0, 0.5);
+  }
+}
+
+.leftSideContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-origin: left;
+  transition: 0.7s;
+}
+
+.outsidePage {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.outsidePageCornerDecoration {
+  width: 100%;
+  height: 10%;
+  position: absolute;
+  z-index: var(--z-index-1);
+  top: 0;
+  right: -25%;
+  rotate: 45deg;
+}
+
+.outsidePageContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  --floral-png-bg: var(--flip-card-outside-bg-pattern-fill);
+  /* ovo treba izdvojit da se drugačije zove,
+   onda mogu mijenjat boju maske di oću, a ne samo u floral texturi*/
+  --floral-png-mask: var(--flip-card-outside-bg-pattern-stroke);
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--flip-card-outside-text-bg);
+  width: 100%;
+  z-index: var(--z-index-1);
+  padding: 0.625rem;
+}
+
+.shadowedTitle {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-l);
+  font-weight: 900;
+  text-align: center;
+}
+
+/*--- L E F T   P A G E ---*/
+
+.insideLeftPage {
+  color: var(--flip-card-inside-left-text);
+  position: absolute;
+  background: color-mix(
+    in srgb,
+    var(--bg-color) 5%,
+    var(--flip-card-inside-left-bg)
+  );
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.7s;
+  transform: rotateY(-180deg);
+  z-index: var(--z-index-1);
+  border-radius: var(--border-radius);
+  box-shadow:
+    inset 0.3125rem 0 0.5rem -0.3125rem #0009,
+    inset -0.3125rem 0 0.5rem -0.3125rem #0009;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .leftSideContainer {
+    transform: rotateY(-180deg);
+  }
+
+  .card:hover .insideLeftPage {
+    opacity: 1;
+    transition: 0.6s;
+  }
+}
+
+.insideLeftPageContent {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.packageName {
+  font-size: var(--font-size-l);
+  font-family: var(--font-family-primary);
+  font-weight: 400;
+  text-shadow: 0.05rem 0.05rem 0 white;
+  color: var(--flip-card-inside-left-text);
+  text-align: center;
+}
+
+.benefits {
+  color: var(--flip-card-inside-left-important-text);
+  padding: 1.25rem 0.625rem;
+  line-height: 1.15;
+  font-family: var(--font-family-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: var(--font-size-xs);
+  font-weight: 400;
+  margin: 0 0.625rem;
+}
+
+.benefitItem {
+  display: flex;
+  gap: 0.5rem;
+  text-shadow: 0.05rem 0.05rem 0rem rgba(221, 221, 221, 0.785);
+}
+
+.priceBadgeContainer {
+  display: flex;
+  justify-content: center;
+}
+
+/*--- R I G H T   P A G E ---*/
+
+.insideRightPage {
+  color: var(--flip-card-inside-right-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: var(--z-index-0);
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  border-radius: var(--border-radius);
+}
+
+.insideRightPageContent {
+  padding: 0.625rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  height: 100%;
+}
+
+.polaroidContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.625rem;
+}
+
+.extrasContainer {
+  color: var(--flip-card-inside-right-text);
+  font-style: italic;
+  font-family: var(--font-family-secondary);
+  padding: 0 0.625rem;
+}
+
+.extrasTitle {
+  font-size: var(--font-size-xs);
+}
+
+.extrasItemList {
+  color: var(--flip-card-inside-right-important-text);
+  padding-left: 1.25rem;
+  padding-right: 0.625rem;
+  margin-top: 0.625rem;
+}
+
+.dottedPriceRow {
+  line-height: 1.5;
+}
+
+.dottedPriceRow > * {
+  font-family: var(--font-family-secondary);
+}

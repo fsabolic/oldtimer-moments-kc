@@ -7,8 +7,10 @@
   --font-family-tertiary: "Slabo27", sans-serif;
 
   /* font sizes */
-  --font-size-xs: 0.75rem;
+  --font-size-xxs: 0.9rem;
+  --font-size-xs: 1rem;
   --font-size-s: 1.25rem;
+  --font-size-xm: 1.5rem;
   --font-size-m: 1.75rem;
   --font-size-l: 2rem;
   --font-size-xl: 2.5rem;
@@ -44,6 +46,28 @@
   --pricing-item-badge-title-shadow: var(--color-white);
   --pricing-item-icon: var(--color-earth-500);
   --pricing-item-text: var(--text-heading-secondary);
+
+  /* flip card */
+  --flip-card-outside-bg-pattern-fill: var(--surface-background);
+  --flip-card-outside-bg-pattern-stroke: var(--surface-paper);
+  --flip-card-outside-text: var(--text-heading-primary);
+  --flip-card-outside-text-shadow: var(--color-white);
+  --flip-card-outside-text-bg: var(--surface-paper);
+
+  --flip-card-inside-left-bg: var(--color-earth-100);
+  --flip-card-inside-left-text: var(--text-heading-primary);
+  --flip-card-inside-left-important-text: var(--color-accent-500);
+  --flip-card-inside-left-price-badge-fill: var(--surface-paper);
+  --flip-card-inside-left-price-badge-stroke: var(--color-earth-500);
+  --flip-card-inside-left-price-badge-text: var(--color-earth-500);
+  --flip-card-inside-left-price-badge-text-shadow: var(--color-white);
+
+  --flip-card-inside-right-bg: var(--surface-paper);
+  --flip-card-inside-right-text: var(--text-heading-secondary);
+  --flip-card-inside-right-important-text: var(--text-heading-primary);
+
+  --flip-card-top-edge: var(--color-earth-600);
+  --flip-card-right-edge: var(--color-earth-600);
 
   /* polaroid */
   --polaroid-bg: var(--surface-paper);
@@ -106,8 +130,8 @@
   --about-title-shadow: var(--color-white);
 
   /* gallery */
-  --gallery-floral-png-mask: var(--color-earth-600);
-  --gallery-floral-png-bg: var(--color-paper-300);
+  --floral-png-mask: var(--color-earth-600);
+  --floral-png-bg: var(--color-paper-300);
 
   /* pricing */
   --pricing-title: var(--text-heading-primary);
@@ -117,6 +141,11 @@
   --pricing-additionals-container-bg: var(--surface-paper);
   --pricing-additionals-title-text-color: var(--color-earth-500);
   --pricing-additionals-title-shadow: var(--color-white);
+
+  /* carousel */
+  --carousel-nav-bg: transparent;
+  --carousel-nav-hover-bg: var(--color-earth-100);
+  --carousel-nav-color: var(--text-heading-primary);
 
   /* contacts */
   --contacts-title: var(--color-earth-200);

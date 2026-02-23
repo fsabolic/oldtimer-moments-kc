@@ -22,6 +22,7 @@
   --color-accent-200: #a3b18a;
   --color-accent-300: #8f9f75;
   --color-accent-400: #6b7d5c;
+  --color-accent-500: #8d3400;
 
   /* Neutral papers */
   --color-paper-100: #efe1c6;
@@ -55,8 +56,8 @@
      SHADOWS
      ===================================================== */
 
-  --shadow-soft: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.08),
-    0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+  --shadow-soft:
+    0 0.25rem 0.375rem rgba(0, 0, 0, 0.08), 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
 
   --shadow-strong: 0 0 1.25rem rgba(0, 0, 0, 0.5);
 }

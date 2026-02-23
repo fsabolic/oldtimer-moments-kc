@@ -10,20 +10,22 @@
   inset: 0;
   padding: calc(var(--r) + 0.25rem);
   background: var(--stamp-border);
-  z-index: 0;
+  z-index: var(--z-index-0);
   transform: translate(0.25rem, 0.125rem);
   filter: blur(3rem);
-  mask: radial-gradient(50% 50%, #0000 66%, #000 67%) round var(--r) var(--r) /
+  mask:
+    radial-gradient(50% 50%, #0000 66%, #000 67%) round var(--r) var(--r) /
       calc(2 * var(--r)) calc(2 * var(--r)),
     conic-gradient(#000 0 0) content-box;
 }
 
 .stamp {
   position: relative;
-  z-index: 1;
+  z-index: var(--z-index-1);
   padding: var(--r);
   background: var(--stamp-bg);
-  mask: radial-gradient(50% 50%, #0000 66%, #000 67%) round var(--r) var(--r) /
+  mask:
+    radial-gradient(50% 50%, #0000 66%, #000 67%) round var(--r) var(--r) /
       calc(2 * var(--r)) calc(2 * var(--r)),
     conic-gradient(#000 0 0) content-box;
 }

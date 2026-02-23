@@ -15,14 +15,14 @@ export abstract class BaseSkinningFactory<T, Q> implements SkinningFactory<T> {
     pinata: PinataSDK,
     groupId: string,
   ): Promise<SectionSkinning<T>> {
-    const files = await pinata.files.public.list().group(groupId);
+    const files = await pinata.files.public.list().group(groupId).all();
 
     const skinning: SectionSkinning<T> = {
       imageIds: [],
       textJson: {} as T,
     };
 
-    for (const file of files.files) {
+    for (const file of files) {
       if (file.mime_type === "application/json") {
         const response = await pinata.gateways.public.get(file.cid);
         skinning.textJson = this.mapJsonResponseToTextJson(response.data as Q);
