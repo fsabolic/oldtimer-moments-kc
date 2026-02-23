@@ -1,4 +1,4 @@
-import { Component, For } from "solid-js";
+import { Component, For, createMemo } from "solid-js";
 import classes from "./hero-cover.module.css";
 import BurstBadge from "../../components/burst-badge/BurstBadge";
 import TitleRibbon from "../../components/title-ribbon/TitleRibbon";
@@ -29,7 +29,7 @@ const HeroCover: Component = () => {
   const bigTitleText = skinning.heroSkinning.textJson.title;
   const ribbonText = skinning.heroSkinning.textJson.subtitle;
 
-  const underlinePositions: UnderlineText[] = [
+  const underlinePositions = createMemo((): UnderlineText[] => [
     {
       text: skinning.heroSkinning.textJson.navigation.aboutUs,
       position: isMobile()
@@ -58,7 +58,7 @@ const HeroCover: Component = () => {
         : { bottom: "20%", right: "10%", rotate: "-20deg" },
       scrollId: "contact",
     },
-  ];
+  ]);
 
   const underlineClickHandler = (id: ScrollId) => {
     const element = document.getElementById(id);
@@ -73,7 +73,7 @@ const HeroCover: Component = () => {
 
   return (
     <div class={classes.heroContainer}>
-      <For each={underlinePositions}>
+      <For each={underlinePositions()}>
         {(underline) => (
           <div
             onClick={() => underlineClickHandler(underline.scrollId)}

@@ -1,4 +1,4 @@
-import { Component } from "solid-js";
+import { Component, createMemo } from "solid-js";
 import { PaperSection } from "../../components/paper-section/PaperSection";
 import classes from "./about.module.css";
 import textures from "../../styles/textures.module.css";
@@ -7,6 +7,7 @@ import ShadowedTitle from "../../components/shadowed-title/ShadowedTitle";
 import { ScrollId } from "../../models/ScrollId";
 import { useSkinningStore } from "../../global-store/SkinningStore";
 import { getApiImage } from "../../util/getApiImage";
+import { isMobile } from "../../global-store/WindowWidthGlobal";
 
 const About: Component = () => {
   const aboutSkinning = useSkinningStore().aboutSkinning;
@@ -17,6 +18,9 @@ const About: Component = () => {
   const pageId: ScrollId = "about";
   const title = aboutSkinningText.title;
   const text = aboutSkinningText.description;
+
+  const width = createMemo(() => (isMobile() ? "16rem" : "40rem"));
+  const height = createMemo(() => (isMobile() ? "12rem" : "20rem"));
 
   return (
     <div id={pageId} class={textures.rundownTexture}>
@@ -37,8 +41,8 @@ const About: Component = () => {
           </div>
           <div class={classes.imageSection}>
             <PolaroidFrame
-              width={"100%"}
-              height={"20rem"}
+              width={width()}
+              height={height()}
               class={classes.polaroid}
               sideTape={true}
               src={getApiImage(aboutSkinningImage)}
