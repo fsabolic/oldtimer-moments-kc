@@ -88,3 +88,36 @@
   width: 11rem;
   height: 11rem;
 }
+
+@media (max-width: 767px) {
+  .galleryContainer {
+    padding: 2rem 1rem 4rem 1rem;
+  }
+
+  .titleContainer {
+    width: 18rem;
+    height: 4.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .polaroidContainer {
+    grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+    gap: 5rem 2em;
+    justify-items: center;
+  }
+
+  .galleryItemWrapper {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+
+  .polaroidComponent {
+    width: 7rem;
+    height: 7rem;
+    padding: 0.375rem;
+  }
+}

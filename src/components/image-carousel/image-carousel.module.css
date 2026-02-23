@@ -20,6 +20,7 @@
   max-width: 80%;
   object-fit: cover;
 }
+
 .carouselButton {
   position: absolute;
   width: 3rem;
@@ -36,11 +37,13 @@
     0.2s ease,
     transform 0.2s ease;
   z-index: var(--z-index-3);
+  opacity: 0.7;
 }
 
 .carouselButton:hover {
-  background: var(--carousel-button-bg-hover);
+  background: rgba(255, 255, 255, 0.1);
   transform: scale(1.1);
+  opacity: 1;
 }
 
 .carouselButton:active {
@@ -48,21 +51,30 @@
 }
 
 .carouselButtonLeft {
-  left: 1rem;
+  left: 0.5rem;
 }
 
 .carouselButtonLeft {
   transform: rotate(180deg);
 }
+
 .carouselButtonLeft:hover {
   transform: rotate(180deg) scale(1.1);
 }
 
 .carouselButtonRight {
-  right: 1rem;
+  right: 0.5rem;
 }
 
 .carouselTrack {
   height: 100% !important;
   width: 100% !important;
+}
+
+@media (max-width: 768px) {
+  .carouselButton {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: transparent;
+  }
 }

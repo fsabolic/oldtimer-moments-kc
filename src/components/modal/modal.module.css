@@ -15,7 +15,6 @@
   position: fixed;
   top: 0;
   right: 0;
-  margin: 0.625rem;
   width: 3.5rem;
   height: 3.5rem;
   display: flex;
@@ -25,11 +24,25 @@
   color: var(--modal-cancel-button);
   border: none;
   cursor: pointer;
-  transition: 0.2s ease, transform 0.2s ease;
+  transition:
+    0.2s ease,
+    transform 0.2s ease;
   z-index: var(--z-index-5);
 }
 
 .closeButton:hover {
   transform: scale(1.2);
   color: var(--modal-cancel-button-hover);
+}
+
+@media (max-width: 767px) {
+  .closeButton {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0.5rem;
+  }
+  .closeButton svg {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
 }
