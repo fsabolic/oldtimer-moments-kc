@@ -20,12 +20,18 @@ interface FlipCardProps {
   height?: string;
   scalingFactor?: number;
   image?: string;
+  onClick?: () => void;
 }
 
 export default function FlipCard(props: FlipCardProps) {
+  const handleCardClick = () => {
+    if (props.onClick) props.onClick();
+  };
+
   return (
     <div
       class={styles.card}
+      onClick={handleCardClick}
       style={{
         "--width": props.width ?? "18.75rem",
         "--height": props.height ?? "25rem",

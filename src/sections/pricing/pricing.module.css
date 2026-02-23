@@ -63,16 +63,6 @@
   flex-direction: row;
 }
 
-.pricingItemsContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 5rem;
-  width: calc(100% - var(--needed-space));
-}
-
 .flipCardContainer {
   transform: rotate(var(--rotation));
   transition: 0.5s;
@@ -87,7 +77,7 @@
 .footnotes {
   display: flex;
   flex-direction: column;
-  padding: 5rem 1rem 1rem 1rem;
+  padding: 4rem 1rem 1rem 1rem;
   gap: 0.25rem;
 }
 
@@ -96,4 +86,57 @@
   font-family: var(--font-family-primary);
   font-size: var(--font-size-s);
   color: var(--text-heading-primary);
+}
+
+.arrowContainer {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  z-index: var(--z-index-3);
+}
+
+.leftArrow {
+  left: 1rem;
+}
+
+.rightArrow {
+  right: 1rem;
+}
+
+.navButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--carousel-nav-color);
+  width: 4rem;
+  height: 4rem;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition:
+    transform 0.2s,
+    background-color 0.2s;
+  background-color: var(--carousel-nav-bg);
+}
+
+.navButton:hover {
+  transform: scale(1.1);
+  background-color: var(--carousel-nav-hover-bg);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.navButton > svg {
+  width: 100%;
+  height: 100%;
+}
+
+.leftArrow .navButton > svg {
+  transform: rotate(180deg);
 }

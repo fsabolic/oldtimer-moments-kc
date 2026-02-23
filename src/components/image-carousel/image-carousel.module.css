@@ -32,8 +32,10 @@
   cursor: pointer;
   border: none;
   border-radius: 10%;
-  transition: 0.2s ease, transform 0.2s ease;
-  z-index: var(--z-index-2);
+  transition:
+    0.2s ease,
+    transform 0.2s ease;
+  z-index: var(--z-index-3);
 }
 
 .carouselButton:hover {
@@ -49,10 +51,18 @@
   left: 1rem;
 }
 
-.carouselButtonLeft > * {
+.carouselButtonLeft {
   transform: rotate(180deg);
+}
+.carouselButtonLeft:hover {
+  transform: rotate(180deg) scale(1.1);
 }
 
 .carouselButtonRight {
   right: 1rem;
+}
+
+.carouselTrack {
+  height: 100% !important;
+  width: 100% !important;
 }

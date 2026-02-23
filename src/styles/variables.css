@@ -142,6 +142,11 @@
   --pricing-additionals-title-text-color: var(--color-earth-500);
   --pricing-additionals-title-shadow: var(--color-white);
 
+  /* carousel */
+  --carousel-nav-bg: transparent;
+  --carousel-nav-hover-bg: var(--color-earth-100);
+  --carousel-nav-color: var(--text-heading-primary);
+
   /* contacts */
   --contacts-title: var(--color-earth-200);
   --contacts-badge-fill: var(--contacts-title);
