@@ -10,7 +10,8 @@
 
 .heroContainer::after {
   content: "";
-  background-image: repeating-conic-gradient(
+  background-image:
+    repeating-conic-gradient(
       var(--hero-grain) 0%,
       transparent 0.00003%,
       transparent 0.0005%,
@@ -130,4 +131,34 @@
   position: absolute;
   top: 10%;
   right: 5%;
+}
+
+@media (max-width: 767px) {
+  .centerPiece {
+    margin-top: 0;
+  }
+
+  .bigTitle {
+    font-size: 2.25rem;
+    width: 90%;
+    margin-bottom: -10rem;
+  }
+
+  .centerImage {
+    height: 90%;
+    width: 90%;
+    aspect-ratio: 1 / 1;
+    object-fit: scale-down;
+  }
+
+  .badge {
+    margin-bottom: -2rem;
+  }
+
+  .ribbonTitle {
+    margin-top: -8rem;
+    width: 80%;
+    height: 6%;
+    font-size: 1.5rem;
+  }
 }

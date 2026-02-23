@@ -89,10 +89,10 @@
   --carousel-button-bg-hover: var(--color-earth-500);
 
   /* hand drawn underline */
-  --underline-stroke: var(--hero-ribbon-text);
-  --underline-stroke-hover: var(--color-earth-500);
-  --underline-text-color: var(--hero-ribbon-text);
-  --underline-text-color-hover: var(--color-earth-200);
+  --underline-stroke-hover: var(--hero-ribbon-text);
+  --underline-stroke: var(--color-earth-500);
+  --underline-text-color-hover: var(--hero-ribbon-text);
+  --underline-text-color: var(--color-earth-200);
 
   /* fading image title */
   --fading-image-title: var(--color-earth-600);

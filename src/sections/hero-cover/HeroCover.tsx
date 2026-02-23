@@ -8,6 +8,7 @@ import car from "/assets/images/ficho-hero.webp";
 import { HandDrawnUnderline } from "../../components/hand-written-underline/HandwrittenUnderline";
 import { ScrollId } from "../../models/ScrollId";
 import { useSkinningStore } from "../../global-store/SkinningStore";
+import { isMobile } from "../../global-store/WindowWidthGlobal";
 
 interface Position {
   top?: string;
@@ -31,22 +32,30 @@ const HeroCover: Component = () => {
   const underlinePositions: UnderlineText[] = [
     {
       text: skinning.heroSkinning.textJson.navigation.aboutUs,
-      position: { top: "10%", left: "10%", rotate: "-20deg" },
+      position: isMobile()
+        ? { top: "10%", left: "5%", rotate: "-20deg" }
+        : { top: "10%", left: "10%", rotate: "-20deg" },
       scrollId: "about",
     },
     {
       text: skinning.heroSkinning.textJson.navigation.gallery,
-      position: { top: "10%", right: "10%", rotate: "20deg" },
+      position: isMobile()
+        ? { top: "10%", right: "5%", rotate: "20deg" }
+        : { top: "10%", right: "10%", rotate: "20deg" },
       scrollId: "gallery",
     },
     {
       text: skinning.heroSkinning.textJson.navigation.pricing,
-      position: { bottom: "20%", left: "10%", rotate: "20deg" },
+      position: isMobile()
+        ? { bottom: "15%", left: "5%", rotate: "20deg" }
+        : { bottom: "20%", left: "10%", rotate: "20deg" },
       scrollId: "prices",
     },
     {
       text: skinning.heroSkinning.textJson.navigation.contactUs,
-      position: { bottom: "20%", right: "10%", rotate: "-20deg" },
+      position: isMobile()
+        ? { bottom: "15%", right: "5%", rotate: "-20deg" }
+        : { bottom: "20%", right: "10%", rotate: "-20deg" },
       scrollId: "contact",
     },
   ];
@@ -75,9 +84,9 @@ const HeroCover: Component = () => {
             }}
           >
             <HandDrawnUnderline
-              strokeWidth={1.5}
-              fontSize={2.5}
-              maxWidth={20}
+              strokeWidth={isMobile() ? 1 : 1.5}
+              fontSize={isMobile() ? 1.5 : 2.5}
+              maxWidth={isMobile() ? 10 : 20}
               text={underline.text}
             />
           </div>
