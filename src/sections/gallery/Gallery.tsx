@@ -30,8 +30,8 @@ const Gallery: Component = () => {
   };
 
   const transformStyle = () => {
-    return `translate(${Math.random() * 3.125 - 1.5625}rem, ${
-      Math.random() * 3.125 - 1.5625
+    return `translate(${Math.random() * 1 - 0.5}rem, ${
+      Math.random() * 1 - 0.5
     }rem)`;
   };
 
