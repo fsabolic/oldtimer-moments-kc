@@ -140,3 +140,45 @@
 .leftArrow .navButton > svg {
   transform: rotate(180deg);
 }
+@media (max-width: 768px) {
+  .pricingContainer {
+    gap: 3rem;
+  }
+
+  .title {
+    font-size: var(--font-size-xl);
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .navButton {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .arrowContainer {
+    width: 2.5rem;
+  }
+
+  .leftArrow {
+    left: 0.5rem;
+  }
+
+  .rightArrow {
+    right: 0.5rem;
+  }
+
+  .track {
+    height: 18rem;
+  }
+
+  .footnotes {
+    padding: 2rem 1rem 1rem 1rem;
+  }
+
+  .footnote {
+    font-size: var(--font-size-xs);
+  }
+}

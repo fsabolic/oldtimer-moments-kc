@@ -23,8 +23,8 @@ const Pricing: Component<{}> = () => {
   const pricingFootnotes = pricingSkinningText.footnotes;
 
   const flipCardConfig = {
-    width: () => (isMobile() ? 240 : 300),
-    height: () => (isMobile() ? 320 : 400),
+    width: () => (isMobile() ? 190 : 300),
+    height: () => (isMobile() ? 260 : 400),
     defaultScalingFactor: 1.35,
     computedScaling: () => {
       return flipCardConfig.width() * 2 * flipCardConfig.defaultScalingFactor >
