@@ -1,4 +1,4 @@
-import { Component, For } from "solid-js";
+import { Component, For, createSignal } from "solid-js";
 import { PaperSection } from "../../components/paper-section/PaperSection";
 import classes from "./pricing.module.css";
 import ShadowedTitle from "../../components/shadowed-title/ShadowedTitle";
@@ -12,7 +12,7 @@ import {
 import { bandColors } from "../../styles/band-colors";
 import Carousel from "../../components/carousel/Carousel";
 import RightArrow from "/assets/images/right-arrow.svg?raw";
-
+import MobilePricingModal from "../../components/mobile-pricing-modal/MobilePricingModal";
 const Pricing: Component<{}> = () => {
   const pricingSkinningText = useSkinningStore().pricingSkinning.textJson;
   const pricingSkinningImages = useSkinningStore().pricingSkinning.imageIds;
@@ -22,6 +22,11 @@ const Pricing: Component<{}> = () => {
   const pricingExtras = pricingSkinningText.extras;
   const pricingFootnotes = pricingSkinningText.footnotes;
 
+  const [selectedPackageIndex, setSelectedPackageIndex] = createSignal<
+    number | null
+  >(null);
+
+  const handleCloseModal = () => setSelectedPackageIndex(null);
   const flipCardConfig = {
     width: () => (isMobile() ? 190 : 300),
     height: () => (isMobile() ? 260 : 400),
@@ -55,9 +60,9 @@ const Pricing: Component<{}> = () => {
     </div>
   );
 
-  const flipCardClickHandler = () => {
+  const flipCardClickHandler = (index: number) => {
     if (isMobile()) {
-      console.log(Math.random());
+      setSelectedPackageIndex(index);
     }
   };
 
@@ -93,7 +98,7 @@ const Pricing: Component<{}> = () => {
                 image={
                   pricingSkinningImages[index % pricingSkinningImages.length]
                 }
-                onClick={flipCardClickHandler}
+                onClick={() => flipCardClickHandler(index)}
               />
             </div>
           )}
@@ -111,6 +116,29 @@ const Pricing: Component<{}> = () => {
           }}
         </For>
       </div>
+
+      <MobilePricingModal
+        isOpen={selectedPackageIndex() !== null}
+        onClose={handleCloseModal}
+        package={
+          selectedPackageIndex() !== null
+            ? pricingItems[selectedPackageIndex()!]
+            : null
+        }
+        extras={pricingExtras}
+        bandColor={
+          selectedPackageIndex() !== null
+            ? bandColors[selectedPackageIndex()! % bandColors.length]
+            : bandColors[0]
+        }
+        image={
+          selectedPackageIndex() !== null
+            ? pricingSkinningImages[
+                selectedPackageIndex()! % pricingSkinningImages.length
+              ]
+            : undefined
+        }
+      />
     </PaperSection>
   );
 };

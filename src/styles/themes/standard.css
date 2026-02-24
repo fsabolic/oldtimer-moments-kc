@@ -39,7 +39,7 @@
   --surface-background: var(--color-earth-700);
   --surface-paper: var(--color-paper-100);
   --surface-section: var(--color-paper-200);
-  --surface-overlay: rgba(0, 0, 0, 0.8);
+  --surface-overlay: rgba(0, 0, 0, 0.6);
   --surface-border: rgba(0, 0, 0, 0.38);
 
   /* =====================================================
