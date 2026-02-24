@@ -4,3 +4,11 @@
 .polaroidComponent {
   position: absolute;
 }
+
+@media (max-width: 768px) {
+  .polaroidComponent {
+    width: 3.5rem;
+    height: 4rem;
+    padding: 0.25rem;
+  }
+}

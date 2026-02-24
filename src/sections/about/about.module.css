@@ -1,4 +1,5 @@
 .aboutContent {
+  --gap: 1.25rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -38,4 +39,29 @@
 .polaroid {
   padding: 0.625rem;
   transform: rotate(2.5deg);
+}
+
+@media (max-width: 1360px) {
+  .aboutContent {
+    flex-direction: column;
+    gap: 3.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .textSectionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap);
+  }
+
+  .title {
+    font-size: var(--font-size-xl);
+  }
+
+  .textContainer p {
+    font-size: var(--font-size-xs);
+    line-height: 1.5rem;
+  }
 }

@@ -1,8 +1,10 @@
 import { Component, JSX, splitProps, createMemo } from "solid-js";
 import styles from "./burst-badge.module.css";
 
-interface BurstBadgeProps
-  extends Omit<JSX.HTMLAttributes<HTMLDivElement>, "style"> {
+interface BurstBadgeProps extends Omit<
+  JSX.HTMLAttributes<HTMLDivElement>,
+  "style"
+> {
   fill: string;
   size: string;
   pointCount: number;
@@ -30,7 +32,7 @@ const BurstBadge: Component<BurstBadgeProps> = (props) => {
   const pathD = createMemo(() => {
     const numPoints = Math.max(0, local.pointCount);
     const waveAmplitude = 6;
-    const baseRadius = 90;
+    const baseRadius = 85;
 
     const centerX = 100;
     const centerY = 100;
@@ -79,6 +81,7 @@ const BurstBadge: Component<BurstBadgeProps> = (props) => {
           stroke-width={local.strokeWidth}
           stroke-linecap="round"
           stroke-linejoin="round"
+          style={{ "paint-order": "stroke fill" }}
         />
       </svg>
       <div class={styles.content}>{local.children}</div>

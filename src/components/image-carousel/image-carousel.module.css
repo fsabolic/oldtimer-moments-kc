@@ -18,8 +18,43 @@
 .carouselImage {
   max-height: 80%;
   max-width: 80%;
-  object-fit: cover;
+  object-fit: contain;
+  transition: opacity 0.3s ease-in-out;
 }
+
+.imageWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.loaderContainer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-index-1);
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--image-carousel-loader-border);
+  border-top-color: var(--image-carousel-loader-accent);
+  border-radius: 50%;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .carouselButton {
   position: absolute;
   width: 3rem;
@@ -27,8 +62,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--carousel-button-bg);
-  color: var(--carousel-button-text);
+  background: var(--image-carousel-button-bg);
+  color: var(--image-carousel-button-text);
   cursor: pointer;
   border: none;
   border-radius: 10%;
@@ -36,11 +71,13 @@
     0.2s ease,
     transform 0.2s ease;
   z-index: var(--z-index-3);
+  opacity: 0.7;
 }
 
 .carouselButton:hover {
-  background: var(--carousel-button-bg-hover);
+  background: var(--image-carousel-button-bg-hover);
   transform: scale(1.1);
+  opacity: 1;
 }
 
 .carouselButton:active {
@@ -48,21 +85,32 @@
 }
 
 .carouselButtonLeft {
-  left: 1rem;
+  left: 0.5rem;
 }
 
 .carouselButtonLeft {
   transform: rotate(180deg);
 }
+
 .carouselButtonLeft:hover {
   transform: rotate(180deg) scale(1.1);
 }
 
 .carouselButtonRight {
-  right: 1rem;
+  right: 0.5rem;
 }
 
 .carouselTrack {
   height: 100% !important;
   width: 100% !important;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .carouselButton {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: transparent;
+  }
 }

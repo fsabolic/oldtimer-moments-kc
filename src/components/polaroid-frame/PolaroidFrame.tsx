@@ -2,8 +2,10 @@ import { Component, JSX, splitProps } from "solid-js";
 import classes from "./polaroid-frame.module.css";
 import textures from "../../styles/textures.module.css";
 import tape from "/assets/images/clear-tape.png";
-interface PolaroidFrameProps
-  extends Omit<JSX.HTMLAttributes<HTMLDivElement>, "style"> {
+interface PolaroidFrameProps extends Omit<
+  JSX.HTMLAttributes<HTMLDivElement>,
+  "style"
+> {
   style?: JSX.CSSProperties;
   src?: string;
   width?: JSX.CSSProperties["width"];
@@ -25,11 +27,14 @@ const PolaroidFrame: Component<PolaroidFrameProps> = (props) => {
     "topTape",
   ]);
 
-  const mergedStyle: JSX.CSSProperties = {
-    width: local.width,
-    height: local.height,
-    transform: local.rotate ? `rotate(${local.rotate}deg)` : undefined,
-    ...local.style,
+  const mergedStyle = () => {
+    const style: JSX.CSSProperties = {
+      width: local.width,
+      height: local.height,
+      transform: local.rotate ? `rotate(${local.rotate}deg)` : undefined,
+      ...local.style,
+    };
+    return style;
   };
 
   return (
@@ -39,7 +44,7 @@ const PolaroidFrame: Component<PolaroidFrameProps> = (props) => {
         class={[classes.polaroidContainer, textures.rundownTexture, local.class]
           .filter(Boolean)
           .join(" ")}
-        style={mergedStyle}
+        style={mergedStyle()}
       >
         {local.sideTape && (
           <>

@@ -65,3 +65,30 @@
   color: var(--contacts-title);
   z-index: var(--z-index-1);
 }
+
+@media (max-width: 768px) {
+  .contactsContainer {
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .bigTitle {
+    font-size: var(--font-size-l);
+  }
+
+  .icons {
+    gap: 1.5rem;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  .contactItem {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}

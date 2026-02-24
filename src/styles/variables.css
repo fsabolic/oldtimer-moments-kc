@@ -83,16 +83,34 @@
   --modal-cancel-button: var(--color-earth-200);
   --modal-cancel-button-hover: var(--color-earth-300);
 
+  /* mobile pricing modal */
+  --mobile-pricing-modal-backdrop: var(--modal-bg);
+  --mobile-pricing-modal-content-shadow: var(--shadow-strong);
+  --mobile-pricing-modal-close-hover-bg: color-mix(
+    in srgb,
+    var(--color-white) 10%,
+    transparent
+  );
+  --mobile-pricing-modal-benefit-shadow: 0.05rem 0.05rem 0rem
+    var(--color-earth-200);
+
   /* carousel */
   --carousel-button-text: var(--color-earth-300);
   --carousel-button-bg: var(--color-earth-400);
   --carousel-button-bg-hover: var(--color-earth-500);
 
+  /* image carousel */
+  --image-carousel-button-text: var(--color-earth-100);
+  --image-carousel-button-bg: var(--color-earth-700);
+  --image-carousel-button-bg-hover: rgba(255, 255, 255, 0.1);
+  --image-carousel-loader-border: rgba(255, 255, 255, 0.1);
+  --image-carousel-loader-accent: var(--color-earth-100);
+
   /* hand drawn underline */
-  --underline-stroke: var(--hero-ribbon-text);
-  --underline-stroke-hover: var(--color-earth-500);
-  --underline-text-color: var(--hero-ribbon-text);
-  --underline-text-color-hover: var(--color-earth-200);
+  --underline-stroke-hover: var(--hero-ribbon-text);
+  --underline-stroke: var(--color-earth-500);
+  --underline-text-color-hover: var(--hero-ribbon-text);
+  --underline-text-color: var(--color-earth-200);
 
   /* fading image title */
   --fading-image-title: var(--color-earth-600);
