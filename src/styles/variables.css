@@ -99,6 +99,13 @@
   --carousel-button-bg: var(--color-earth-400);
   --carousel-button-bg-hover: var(--color-earth-500);
 
+  /* image carousel */
+  --image-carousel-button-text: var(--color-earth-100);
+  --image-carousel-button-bg: var(--color-earth-700);
+  --image-carousel-button-bg-hover: rgba(255, 255, 255, 0.1);
+  --image-carousel-loader-border: rgba(255, 255, 255, 0.1);
+  --image-carousel-loader-accent: var(--color-earth-100);
+
   /* hand drawn underline */
   --underline-stroke-hover: var(--hero-ribbon-text);
   --underline-stroke: var(--color-earth-500);

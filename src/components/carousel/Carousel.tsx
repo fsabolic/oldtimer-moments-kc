@@ -4,7 +4,7 @@ import { isMobile } from "../../global-store/WindowWidthGlobal";
 
 export interface CarouselProps<T> {
   items: T[];
-  renderItem: (item: T, index: number) => JSX.Element;
+  renderItem: (item: T, index: number, diff: number) => JSX.Element;
   renderLeftButton: (onClick: () => void) => JSX.Element;
   renderRightButton: (onClick: () => void) => JSX.Element;
   getItemStyle?: (diff: number, length: number) => JSX.CSSProperties;
@@ -17,6 +17,14 @@ export interface CarouselProps<T> {
 function Carousel<T>(props: CarouselProps<T>) {
   const [currentIndex, setCurrentIndex] = createSignal(props.startIndex ?? 0);
   const [touchStartX, setTouchStartX] = createSignal<number | null>(null);
+
+  const getDiff = (index: number) => {
+    const len = props.items.length;
+    let diff = index - currentIndex();
+    if (diff > len / 2) diff -= len;
+    else if (diff < -len / 2) diff += len;
+    return diff;
+  };
 
   const next = () => {
     setCurrentIndex((i) => (i + 1) % props.items.length);
@@ -59,9 +67,7 @@ function Carousel<T>(props: CarouselProps<T>) {
 
   const getItemStyleWrapper = (index: number) => {
     const len = props.items.length;
-    let diff = index - currentIndex();
-    if (diff > len / 2) diff -= len;
-    else if (diff < -len / 2) diff += len;
+    const diff = getDiff(index);
 
     if (props.getItemStyle) {
       return props.getItemStyle(diff, len);
@@ -106,7 +112,7 @@ function Carousel<T>(props: CarouselProps<T>) {
                 class={styles.carouselItemWrapper}
                 style={getItemStyleWrapper(index())}
               >
-                {props.renderItem(item, index())}
+                {props.renderItem(item, index(), getDiff(index()))}
               </div>
             );
           }}

@@ -55,6 +55,7 @@ const Gallery: Component = () => {
           <ImageCarousel
             images={polaroids}
             firstIndex={openModal()?.index ?? 0}
+            onClose={() => setOpenModal(null)}
           />
         )}
       </Modal>
