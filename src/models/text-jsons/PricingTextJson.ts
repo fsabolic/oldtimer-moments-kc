@@ -8,7 +8,7 @@ export interface PricingTextJson {
 export interface PricingPackage {
   name: string;
   benefits: string[];
-  price: string;
+  price?: string;
 }
 
 export interface PricingExtras {

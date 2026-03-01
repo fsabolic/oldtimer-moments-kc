@@ -4,14 +4,15 @@ import { PricingTextJson } from "../models/text-jsons/PricingTextJson";
 export const mapPricingJsonResponseToPricingTextJson = (
   pricingJsonResponse: PricingJsonResponse,
 ): PricingTextJson => {
-  const notes: string[] = [];
+  const notes: string[] = pricingJsonResponse.napomene.map(
+    (note, i) => "*".repeat(i + 1) + note,
+  );
   const packages = pricingJsonResponse.paketi.map((item) => {
     return {
       name: item.ime,
       benefits: item.pogodnosti.map((benefit) => {
         if (benefit.napomena) {
-          notes.push(benefit.napomena);
-          return benefit.pogodnost + "*".repeat(notes.length);
+          return benefit.pogodnost + " " + "*".repeat(benefit.napomena);
         }
         return benefit.pogodnost;
       }),

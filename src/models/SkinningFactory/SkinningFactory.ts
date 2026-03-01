@@ -22,15 +22,53 @@ export abstract class BaseSkinningFactory<T, Q> implements SkinningFactory<T> {
       textJson: {} as T,
     };
 
+    const unsortedImages: { id: string; name: string | null }[] = [];
+
     for (const file of files) {
       if (file.mime_type === "application/json") {
         const response = await pinata.gateways.public.get(file.cid);
-        skinning.textJson = this.mapJsonResponseToTextJson(response.data as Q);
+        skinning.textJson = this.sanitizeTextJson(
+          this.mapJsonResponseToTextJson(response.data as Q),
+        );
       } else {
-        skinning.imageIds.push(file.cid);
+        unsortedImages.push({ id: file.cid, name: file.name });
       }
     }
 
+    skinning.imageIds = unsortedImages
+      .sort((a, b) => {
+        if (a.name === null || b.name === null) return 0;
+        return a.name.localeCompare(b.name);
+      })
+      .map((image) => image.id);
+
     return skinning;
+  }
+
+  private sanitizeTextJson(obj: T): T {
+    return this.sanitize(obj);
+  }
+
+  private sanitize<U>(val: U): U {
+    if (typeof val === "string") {
+      return val
+        .replaceAll("<q>", '"')
+        .replaceAll("</q>", '"')
+        .replace(/<br\s*\/?>/gi, "\n\n") as unknown as U;
+    }
+
+    if (Array.isArray(val)) {
+      return val.map((item: unknown) => this.sanitize(item)) as unknown as U;
+    }
+
+    if (val !== null && typeof val === "object") {
+      const result = {} as Record<string, unknown>;
+      for (const [key, value] of Object.entries(val)) {
+        result[key] = this.sanitize(value);
+      }
+      return result as unknown as U;
+    }
+
+    return val;
   }
 }

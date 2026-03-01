@@ -110,11 +110,7 @@ const Pricing: Component<{}> = () => {
       <div class={classes.footnotes}>
         <For each={pricingFootnotes}>
           {(footnote, index) => {
-            return (
-              <p
-                class={classes.footnote}
-              >{`${"*".repeat(index() + 1)} ${footnote}`}</p>
-            );
+            return <p class={classes.footnote}>{footnote}</p>;
           }}
         </For>
       </div>

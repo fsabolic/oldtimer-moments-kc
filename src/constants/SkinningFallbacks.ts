@@ -78,6 +78,10 @@ export const skinningFallback: SkinningFallback = {
         { name: "123Svaki dodatan kilometar", price: "1230,70€" },
       ],
     },
+    footnotes: [
+      "123Cijena ovisi o udaljenosti i trajanju",
+      "123Plaćanje se vrši na dan događaja",
+    ],
   },
   contacts: {
     title: "123Kontakt",

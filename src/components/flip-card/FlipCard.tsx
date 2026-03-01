@@ -77,25 +77,29 @@ export default function FlipCard(props: FlipCardProps) {
                 )}
               </For>
             </div>
-            <div class={styles.priceBadgeContainer}>
-              <BurstBadge
-                fill={`color-mix(in srgb, ${props.bandColor} 15%, white 5%)`}
-                stroke={"var(--flip-card-inside-left-price-badge-stroke)"}
-                strokeWidth={5}
-                size="6.25rem"
-                pointCount={10}
-                spin={true}
-              >
-                <ShadowedTitle
-                  text={props.packages.price + "€"}
-                  shadowColor="var(--flip-card-inside-left-price-badge-text-shadow)"
-                  textColor={"var(--flip-card-inside-left-price-badge-text)"}
-                  style={{
-                    "font-size": "var(--font-size-xm)",
-                  }}
-                />
-              </BurstBadge>
-            </div>
+            {props.packages.price ? (
+              <div class={styles.priceBadgeContainer}>
+                <BurstBadge
+                  fill={`color-mix(in srgb, ${props.bandColor} 15%, white 5%)`}
+                  stroke={"var(--flip-card-inside-left-price-badge-stroke)"}
+                  strokeWidth={5}
+                  size="6.25rem"
+                  pointCount={10}
+                  spin={true}
+                >
+                  <ShadowedTitle
+                    text={props.packages.price + "€"}
+                    shadowColor="var(--flip-card-inside-left-price-badge-text-shadow)"
+                    textColor={"var(--flip-card-inside-left-price-badge-text)"}
+                    style={{
+                      "font-size": "var(--font-size-xm)",
+                    }}
+                  />
+                </BurstBadge>
+              </div>
+            ) : (
+              <div style={{ height: "3rem" }}></div>
+            )}
           </div>
         </div>
       </div>
