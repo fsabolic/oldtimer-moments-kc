@@ -24,6 +24,7 @@ const Modal: Component<FullScreenModalProps> = (props) => {
           class={classes.closeButton}
           onClick={() => props.onClose?.()}
           innerHTML={Cancel}
+          aria-label="Zatvori"
         />
         <div class={classes.modalContainer} onClick={props.onClose}>
           {props.children}

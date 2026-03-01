@@ -13,7 +13,7 @@ interface DottedPriceRowProps {
 
 const DottedPriceRow: Component<DottedPriceRowProps> = (props) => {
   return (
-    <div class={`${classes.dottedPriceRow} ${props.containerClass}`}>
+    <li class={`${classes.dottedPriceRow} ${props.containerClass}`}>
       <span
         class={`${classes.title} ${props.titleClass}`}
         style={{ "font-size": props.fontSize, color: props.color }}
@@ -30,7 +30,7 @@ const DottedPriceRow: Component<DottedPriceRowProps> = (props) => {
       >
         {props.price}
       </span>
-    </div>
+    </li>
   );
 };
 

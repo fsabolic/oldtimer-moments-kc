@@ -36,6 +36,7 @@ const ImageCarousel: Component<ImageCarouselProps> = (props) => {
         class={`${classes.carouselButton} ${classes.carouselButtonLeft}`}
         onClick={prev}
         innerHTML={RightArrow}
+        aria-label="Prethodna slika"
       />
     );
   };
@@ -46,6 +47,7 @@ const ImageCarousel: Component<ImageCarouselProps> = (props) => {
         class={`${classes.carouselButton} ${classes.carouselButtonRight}`}
         onClick={next}
         innerHTML={RightArrow}
+        aria-label="Sljedeća slika"
       />
     );
   };

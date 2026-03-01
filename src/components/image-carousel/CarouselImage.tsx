@@ -30,6 +30,7 @@ const CarouselImage: Component<CarouselImageProps> = (props) => {
           class={classes.carouselImage}
           style={{ opacity: loading() ? 0 : 1 }}
           onLoad={() => setLoading(false)}
+          alt={"Oldtimer gallery image " + props.item.index}
         />
       </Show>
     </div>
