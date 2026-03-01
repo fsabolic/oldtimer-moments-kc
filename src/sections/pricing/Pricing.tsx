@@ -13,6 +13,8 @@ import { bandColors } from "../../styles/band-colors";
 import Carousel from "../../components/carousel/Carousel";
 import RightArrow from "/assets/images/right-arrow.svg?raw";
 import MobilePricingModal from "../../components/mobile-pricing-modal/MobilePricingModal";
+import { createScrollObserver } from "../../hooks/createScrollObserver";
+
 const Pricing: Component<{}> = () => {
   const pricingSkinningText = useSkinningStore().pricingSkinning.textJson;
   const pricingSkinningImages = useSkinningStore().pricingSkinning.imageIds;
@@ -25,6 +27,10 @@ const Pricing: Component<{}> = () => {
   const [selectedPackageIndex, setSelectedPackageIndex] = createSignal<
     number | null
   >(null);
+
+  const titleObserver = createScrollObserver();
+  const carouselObserver = createScrollObserver({ threshold: 0.1 });
+  const footnotesObserver = createScrollObserver();
 
   const handleCloseModal = () => setSelectedPackageIndex(null);
   const flipCardConfig = {
@@ -71,43 +77,64 @@ const Pricing: Component<{}> = () => {
   return (
     <PaperSection id={pageId} class={classes.pricingSection}>
       <div class={classes.pricingContainer}>
-        <ShadowedTitle
-          text={title}
-          class={classes.title}
-          textColor={"var(--pricing-title)"}
-          shadowColor={"var(--pricing-title-shadow)"}
-        />
+        <div
+          ref={titleObserver.ref}
+          class={titleObserver.isVisible() ? "animatePopIn" : "animateHidden"}
+        >
+          <ShadowedTitle
+            text={title}
+            class={classes.title}
+            textColor={"var(--pricing-title)"}
+            shadowColor={"var(--pricing-title-shadow)"}
+          />
+        </div>
 
-        <Carousel
-          items={pricingItems}
-          renderLeftButton={leftButtonHandler}
-          renderRightButton={rightButtonHandler}
-          renderItem={(item, index) => (
-            <div
-              class={classes.flipCardContainer}
-              style={{
-                "--rotation": `${flipCardConfig.rotation()}deg`,
-              }}
-            >
-              <FlipCard
-                title={item.name}
-                width={`${flipCardConfig.width()}px`}
-                height={`${flipCardConfig.height()}px`}
-                scalingFactor={flipCardConfig.computedScaling()}
-                packages={item}
-                extras={pricingExtras}
-                bandColor={bandColors[index % bandColors.length]}
-                image={
-                  pricingSkinningImages[index % pricingSkinningImages.length]
-                }
-                onClick={() => flipCardClickHandler(index)}
-              />
-            </div>
-          )}
-        />
+        <div
+          ref={carouselObserver.ref}
+          class={
+            carouselObserver.isVisible()
+              ? "animateSlideUp delay200"
+              : "animateHidden"
+          }
+        >
+          <Carousel
+            items={pricingItems}
+            renderLeftButton={leftButtonHandler}
+            renderRightButton={rightButtonHandler}
+            renderItem={(item, index) => (
+              <div
+                class={classes.flipCardContainer}
+                style={{
+                  "--rotation": `${flipCardConfig.rotation()}deg`,
+                }}
+              >
+                <FlipCard
+                  title={item.name}
+                  width={`${flipCardConfig.width()}px`}
+                  height={`${flipCardConfig.height()}px`}
+                  scalingFactor={flipCardConfig.computedScaling()}
+                  packages={item}
+                  extras={pricingExtras}
+                  bandColor={bandColors[index % bandColors.length]}
+                  image={
+                    pricingSkinningImages[index % pricingSkinningImages.length]
+                  }
+                  onClick={() => flipCardClickHandler(index)}
+                />
+              </div>
+            )}
+          />
+        </div>
       </div>
 
-      <div class={classes.footnotes}>
+      <div
+        ref={footnotesObserver.ref}
+        class={`${classes.footnotes} ${
+          footnotesObserver.isVisible()
+            ? "animateFadeIn delay300"
+            : "animateHidden"
+        }`}
+      >
         <For each={pricingFootnotes}>
           {(footnote, index) => {
             return <p class={classes.footnote}>{footnote}</p>;

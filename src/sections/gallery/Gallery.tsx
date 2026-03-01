@@ -10,6 +10,7 @@ import tape from "/assets/images/clear-tape.png";
 import ShadowedTitle from "../../components/shadowed-title/ShadowedTitle";
 import { useSkinningStore } from "../../global-store/SkinningStore";
 import { getApiImage } from "../../util/getApiImage";
+import { createScrollObserver } from "../../hooks/createScrollObserver";
 
 const Gallery: Component = () => {
   const gallerySkinning = useSkinningStore().gallerySkinning;
@@ -35,12 +36,23 @@ const Gallery: Component = () => {
     }rem)`;
   };
 
+  const titleObserver = createScrollObserver();
+  const gridObserver = createScrollObserver({ threshold: 0.05 });
+
+  const getItemStaggerDelay = (index: number) =>
+    `${Math.min(index * 0.08, 0.6)}s`;
+
   return (
     <div
       id={pageId}
       class={`${textures.floralMaskBg} ${classes.galleryContainer}`}
     >
-      <div class={classes.titleContainer}>
+      <div
+        ref={titleObserver.ref}
+        class={`${classes.titleContainer} ${
+          titleObserver.isVisible() ? "animatePopIn" : "animateHidden"
+        }`}
+      >
         <img
           alt="tape-image"
           src={tape}
@@ -63,12 +75,19 @@ const Gallery: Component = () => {
           />
         )}
       </Modal>
-      <div class={classes.polaroidContainer}>
+      <div ref={gridObserver.ref} class={classes.polaroidContainer}>
         <For each={polaroids}>
           {(galleryItem) => (
             <div
-              class={classes.galleryItemWrapper}
-              style={{ transform: transformStyle() }}
+              class={`${classes.galleryItemWrapper} ${
+                gridObserver.isVisible() ? "animateFadeIn" : "animateHidden"
+              }`}
+              style={{
+                transform: transformStyle(),
+                "animation-delay": gridObserver.isVisible()
+                  ? getItemStaggerDelay(galleryItem.index)
+                  : undefined,
+              }}
               onClick={() => handlePolaroidClick(galleryItem.index)}
             >
               <div class={classes.galleryItem}>

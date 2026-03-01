@@ -8,6 +8,7 @@ import { ScrollId } from "../../models/ScrollId";
 import { useSkinningStore } from "../../global-store/SkinningStore";
 import { getApiImage } from "../../util/getApiImage";
 import { isMobile } from "../../global-store/WindowWidthGlobal";
+import { createScrollObserver } from "../../hooks/createScrollObserver";
 
 const About: Component = () => {
   const aboutSkinning = useSkinningStore().aboutSkinning;
@@ -22,24 +23,51 @@ const About: Component = () => {
   const width = createMemo(() => (isMobile() ? "16rem" : "40rem"));
   const height = createMemo(() => (isMobile() ? "12rem" : "20rem"));
 
+  const titleObserver = createScrollObserver();
+  const textObserver = createScrollObserver();
+  const imageObserver = createScrollObserver();
+
   return (
     <div id={pageId} class={textures.rundownTexture}>
       <PaperSection>
         <div class={classes.aboutContent}>
           <div class={classes.textSection}>
             <div class={classes.textSectionContainer}>
-              <ShadowedTitle
-                text={title}
-                textColor={"var(--about-title)"}
-                shadowColor={"var(--about-title-shadow)"}
-                class={classes.title}
-              />
-              <div class={classes.textContainer}>
+              <div
+                ref={titleObserver.ref}
+                class={
+                  titleObserver.isVisible()
+                    ? "animateSlideLeft"
+                    : "animateHidden"
+                }
+              >
+                <ShadowedTitle
+                  text={title}
+                  textColor={"var(--about-title)"}
+                  shadowColor={"var(--about-title-shadow)"}
+                  class={classes.title}
+                />
+              </div>
+              <div
+                ref={textObserver.ref}
+                class={`${classes.textContainer} ${
+                  textObserver.isVisible()
+                    ? "animateSlideUp delay200"
+                    : "animateHidden"
+                }`}
+              >
                 <p class={classes.text}>{text}</p>
               </div>
             </div>
           </div>
-          <div class={classes.imageSection}>
+          <div
+            ref={imageObserver.ref}
+            class={`${classes.imageSection} ${
+              imageObserver.isVisible()
+                ? "animateSlideRight delay100"
+                : "animateHidden"
+            }`}
+          >
             <PolaroidFrame
               width={width()}
               height={height()}

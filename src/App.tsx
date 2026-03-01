@@ -14,6 +14,7 @@ import Gallery from "./sections/gallery/Gallery";
 import Pricing from "./sections/pricing/Pricing";
 import { createSkinning } from "./hooks/createSkinning";
 import LoadingScreen from "./sections/loading-screen/LoadingScreen";
+import "./styles/animations.css";
 
 const App: Component = () => {
   const { skinningLoaded } = createSkinning();

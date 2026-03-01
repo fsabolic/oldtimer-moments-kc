@@ -7,6 +7,7 @@ import BurstBadge from "../../components/burst-badge/BurstBadge";
 import instagramIcon from "/assets/images/insta-icon.svg?raw";
 import { ScrollId } from "../../models/ScrollId";
 import { useSkinningStore } from "../../global-store/SkinningStore";
+import { createScrollObserver } from "../../hooks/createScrollObserver";
 
 interface ContactItem {
   href: string;
@@ -14,6 +15,8 @@ interface ContactItem {
   icon: string;
   external?: boolean;
 }
+
+const BADGE_STAGGER_DELAYS = ["delay100", "delay200", "delay300"] as const;
 
 const Contacts: Component = () => {
   const contactsSkinningStore = useSkinningStore().contactsSkinning.textJson;
@@ -40,15 +43,27 @@ const Contacts: Component = () => {
     },
   ] as const;
 
+  const titleObserver = createScrollObserver();
+  const badgesObserver = createScrollObserver({ threshold: 0.3 });
+
   return (
     <div id={pageId} class={classes.contactsContainer}>
-      <ShadowedTitle text={contactUsText} class={classes.bigTitle} />
+      <div
+        ref={titleObserver.ref}
+        class={titleObserver.isVisible() ? "animatePopIn" : "animateHidden"}
+      >
+        <ShadowedTitle text={contactUsText} class={classes.bigTitle} />
+      </div>
 
-      <div class={classes.icons}>
+      <div ref={badgesObserver.ref} class={classes.icons}>
         <For each={CONTACTS}>
-          {(contact) => (
+          {(contact, index) => (
             <a
-              class={classes.contactItem}
+              class={`${classes.contactItem} ${
+                badgesObserver.isVisible()
+                  ? `animateScaleIn ${BADGE_STAGGER_DELAYS[index()]}`
+                  : "animateHidden"
+              }`}
               href={contact.href}
               aria-label={contact.ariaLabel}
               target={contact.external ? "_blank" : undefined}

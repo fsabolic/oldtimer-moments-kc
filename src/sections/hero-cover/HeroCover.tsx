@@ -1,4 +1,4 @@
-import { Component, For, createMemo } from "solid-js";
+import { Component, For, createMemo, createSignal, onMount } from "solid-js";
 import classes from "./hero-cover.module.css";
 import BurstBadge from "../../components/burst-badge/BurstBadge";
 import TitleRibbon from "../../components/title-ribbon/TitleRibbon";
@@ -24,10 +24,23 @@ interface UnderlineText {
   position: Position;
 }
 
+const UNDERLINE_STAGGER_DELAYS = [
+  "delay200",
+  "delay300",
+  "delay400",
+  "delay500",
+] as const;
+
 const HeroCover: Component = () => {
   const skinning = useSkinningStore();
   const bigTitleText = skinning.heroSkinning.textJson.title;
   const ribbonText = skinning.heroSkinning.textJson.subtitle;
+
+  const [animateIn, setAnimateIn] = createSignal(false);
+
+  onMount(() => {
+    requestAnimationFrame(() => setAnimateIn(true));
+  });
 
   const underlinePositions = createMemo((): UnderlineText[] => [
     {
@@ -74,7 +87,7 @@ const HeroCover: Component = () => {
   return (
     <div class={classes.heroContainer}>
       <For each={underlinePositions()}>
-        {(underline) => (
+        {(underline, index) => (
           <div
             role="button"
             tabIndex={0}
@@ -85,7 +98,11 @@ const HeroCover: Component = () => {
                 underlineClickHandler(underline.scrollId);
               }
             }}
-            class={classes.handDrawnUnderlineContainer}
+            class={`${classes.handDrawnUnderlineContainer} ${
+              animateIn()
+                ? `animateFadeIn ${UNDERLINE_STAGGER_DELAYS[index()]}`
+                : "animateHidden"
+            }`}
             style={{
               rotate: `${underline.position.rotate}`,
               ...underline.position,
@@ -103,12 +120,21 @@ const HeroCover: Component = () => {
       <img
         src={hypnoSpiral}
         alt="Background hypno spiral"
-        class={classes.bgImage}
+        class={`${classes.bgImage} ${
+          animateIn() ? "animateFadeIn" : "animateHidden"
+        }`}
       />
       <div class={classes.centerPiece}>
-        <ShadowedTitle text={bigTitleText} class={classes.bigTitle} />
+        <ShadowedTitle
+          text={bigTitleText}
+          class={`${classes.bigTitle} ${
+            animateIn() ? "animatePopIn delay100" : "animateHidden"
+          }`}
+        />
         <BurstBadge
-          class={classes.badge}
+          class={`${classes.badge} ${
+            animateIn() ? "animateSwooshRight delay200" : "animateHidden"
+          }`}
           pointCount={12}
           strokeWidth={10}
           opacity={0.6}
@@ -118,7 +144,12 @@ const HeroCover: Component = () => {
         >
           <img class={classes.centerImage} src={car} alt="Fićo" />
         </BurstBadge>
-        <TitleRibbon text={ribbonText} class={classes.ribbonTitle} />
+        <TitleRibbon
+          text={ribbonText}
+          class={`${classes.ribbonTitle} ${
+            animateIn() ? "animateSlideUp delay400" : "animateHidden"
+          }`}
+        />
       </div>
     </div>
   );
