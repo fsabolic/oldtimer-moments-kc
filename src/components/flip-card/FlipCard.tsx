@@ -111,6 +111,7 @@ export default function FlipCard(props: FlipCardProps) {
                 src={getApiImage(props.image, 175, 175)}
                 topTape={true}
                 rotate={Math.random() * 10 - 5}
+                alt={props.packages.name}
               />
             </div>
           )}

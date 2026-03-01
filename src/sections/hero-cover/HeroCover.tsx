@@ -76,7 +76,15 @@ const HeroCover: Component = () => {
       <For each={underlinePositions()}>
         {(underline) => (
           <div
+            role="button"
+            tabIndex={0}
             onClick={() => underlineClickHandler(underline.scrollId)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                underlineClickHandler(underline.scrollId);
+              }
+            }}
             class={classes.handDrawnUnderlineContainer}
             style={{
               rotate: `${underline.position.rotate}`,
@@ -92,7 +100,11 @@ const HeroCover: Component = () => {
           </div>
         )}
       </For>
-      <img src={hypnoSpiral} class={classes.bgImage} />
+      <img
+        src={hypnoSpiral}
+        alt="Background hypno spiral"
+        class={classes.bgImage}
+      />
       <div class={classes.centerPiece}>
         <ShadowedTitle text={bigTitleText} class={classes.bigTitle} />
         <BurstBadge
@@ -104,7 +116,7 @@ const HeroCover: Component = () => {
           fill="var(--hero-badge-fill)"
           stroke="var(--hero-badge-stroke)"
         >
-          <img class={classes.centerImage} src={car} />
+          <img class={classes.centerImage} src={car} alt="Fićo" />
         </BurstBadge>
         <TitleRibbon text={ribbonText} class={classes.ribbonTitle} />
       </div>

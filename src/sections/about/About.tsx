@@ -46,6 +46,7 @@ const About: Component = () => {
               class={classes.polaroid}
               sideTape={true}
               src={getApiImage(aboutSkinningImage)}
+              alt={title}
             />
           </div>
         </div>

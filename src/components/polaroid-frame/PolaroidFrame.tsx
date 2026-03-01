@@ -8,6 +8,7 @@ interface PolaroidFrameProps extends Omit<
 > {
   style?: JSX.CSSProperties;
   src?: string;
+  alt?: string;
   width?: JSX.CSSProperties["width"];
   height?: JSX.CSSProperties["height"];
   rotate?: number;
@@ -18,6 +19,7 @@ interface PolaroidFrameProps extends Omit<
 const PolaroidFrame: Component<PolaroidFrameProps> = (props) => {
   const [local, divProps] = splitProps(props, [
     "src",
+    "alt",
     "width",
     "height",
     "rotate",
@@ -50,23 +52,32 @@ const PolaroidFrame: Component<PolaroidFrameProps> = (props) => {
           <>
             <img
               src={tape}
+              alt=""
+              role="presentation"
               class={`${classes.tape} ${classes.leftCornerTape}`}
             />
 
             <img
               src={tape}
+              alt=""
+              role="presentation"
               class={`${classes.tape} ${classes.rightCornerTape}`}
             />
           </>
         )}
         {local.topTape && (
           <>
-            <img src={tape} class={`${classes.tape} ${classes.topTape}`} />
+            <img
+              src={tape}
+              alt=""
+              role="presentation"
+              class={`${classes.tape} ${classes.topTape}`}
+            />
           </>
         )}
         <div class={classes.imageContainer}>
           {local.src ? (
-            <img src={local.src} class={classes.image} />
+            <img src={local.src} alt={local.alt || ""} class={classes.image} />
           ) : (
             <div class={classes.image} />
           )}

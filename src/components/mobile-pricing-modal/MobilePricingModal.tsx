@@ -97,7 +97,11 @@ export default function MobilePricingModal(props: MobilePricingModalProps) {
             </>
           )}
 
-          <button class={classes.closeButton} onClick={props.onClose}>
+          <button
+            class={classes.closeButton}
+            onClick={props.onClose}
+            aria-label="Zatvori"
+          >
             &times;
           </button>
 
@@ -153,6 +157,7 @@ export default function MobilePricingModal(props: MobilePricingModalProps) {
                       src={getApiImage(props.image, 250, 250)}
                       topTape={true}
                       rotate={Math.random() * 6 - 3}
+                      alt={props.package.name}
                     />
                   </div>
                 )}

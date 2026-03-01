@@ -46,6 +46,7 @@ const Pricing: Component<{}> = () => {
         class={classes.navButton}
         onClick={onClick}
         innerHTML={RightArrow}
+        aria-label="Prethodna ponuda"
       />
     </div>
   );
@@ -56,6 +57,7 @@ const Pricing: Component<{}> = () => {
         class={classes.navButton}
         onClick={onClick}
         innerHTML={RightArrow}
+        aria-label="Sljedeća ponuda"
       />
     </div>
   );

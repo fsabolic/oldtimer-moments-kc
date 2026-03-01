@@ -41,7 +41,11 @@ const Gallery: Component = () => {
       class={`${textures.floralMaskBg} ${classes.galleryContainer}`}
     >
       <div class={classes.titleContainer}>
-        <img src={tape} class={`${classes.tape} ${classes.topTape}`} />
+        <img
+          alt="tape-image"
+          src={tape}
+          class={`${classes.tape} ${classes.topTape}`}
+        />
         <div class={`${classes.tornPaper} ${textures.rundownTexture}`} />
         <ShadowedTitle
           text={title}
@@ -73,6 +77,7 @@ const Gallery: Component = () => {
                   class={classes.polaroidComponent}
                   src={galleryItem.image}
                   topTape={true}
+                  alt={`${title} - slika ${galleryItem.index + 1}`}
                 />
               </div>
             </div>

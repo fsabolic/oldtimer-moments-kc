@@ -49,12 +49,14 @@ const App: Component = () => {
         <LoadingScreen />
       ) : (
         <>
-          <HeroCover />
-          <PolaroidSeparator />
-          <About />
-          <Gallery />
-          <Pricing />
-          <Contacts />
+          <main>
+            <HeroCover />
+            <PolaroidSeparator />
+            <About />
+            <Gallery />
+            <Pricing />
+            <Contacts />
+          </main>
         </>
       )}
     </>
