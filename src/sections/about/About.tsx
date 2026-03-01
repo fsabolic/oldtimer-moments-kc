@@ -35,7 +35,9 @@ const About: Component = () => {
                 class={classes.title}
               />
               <div class={classes.textContainer}>
-                <p class={classes.text}>{text}</p>
+                <p class={classes.text}>
+                  {text.replace(/<br\s*\/?>/gi, "\n\n")}
+                </p>
               </div>
             </div>
           </div>
