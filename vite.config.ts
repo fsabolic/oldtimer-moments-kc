@@ -1,11 +1,11 @@
 import { defineConfig } from "vite";
 import solidPlugin from "vite-plugin-solid";
 import devtools from "solid-devtools/vite";
-import solidSvg from 'vite-plugin-solid-svg';
+import solidSvg from "vite-plugin-solid-svg";
 
 export default defineConfig({
-  plugins: [devtools(), solidPlugin(),solidSvg()],
-  base: "/oldtimer-moments-kc/",
+  plugins: [devtools(), solidPlugin(), solidSvg()],
+  base: "",
   server: {
     port: 3000,
   },
