@@ -25,6 +25,50 @@
   border-right: var(--edge-size) solid var(--flip-card-right-edge);
 }
 
+.activeIndicator {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.activeIndicator::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20rem;
+  aspect-ratio: 1 / 1;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+  animation: rotateShadow 4s linear infinite;
+  filter: blur(1rem);
+  opacity: 0.8;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: perspective(125rem) scale(1);
+  }
+  50% {
+    transform: perspective(125rem) scale(1.05);
+  }
+}
+
+@keyframes rotateShadow {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
     transform: perspective(125rem) rotate(0deg) scale(var(--scaling-factor))
@@ -68,8 +112,6 @@
   height: 100%;
   width: 100%;
   --floral-png-bg: var(--flip-card-outside-bg-pattern-fill);
-  /* ovo treba izdvojit da se drugačije zove,
-   onda mogu mijenjat boju maske di oću, a ne samo u floral texturi*/
   --floral-png-mask: var(--flip-card-outside-bg-pattern-stroke);
 }
 

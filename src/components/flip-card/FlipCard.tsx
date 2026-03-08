@@ -21,6 +21,7 @@ interface FlipCardProps {
   scalingFactor?: number;
   image?: string;
   onClick?: () => void;
+  isActive?: boolean;
 }
 
 export default function FlipCard(props: FlipCardProps) {
@@ -30,7 +31,7 @@ export default function FlipCard(props: FlipCardProps) {
 
   return (
     <div
-      class={styles.card}
+      class={`${styles.card} ${props.isActive ? styles.activeIndicator : ""}`}
       onClick={handleCardClick}
       style={{
         "--width": props.width ?? "18.75rem",

@@ -103,7 +103,7 @@ const Pricing: Component<{}> = () => {
             items={pricingItems}
             renderLeftButton={leftButtonHandler}
             renderRightButton={rightButtonHandler}
-            renderItem={(item, index) => (
+            renderItem={(item, index, diff) => (
               <div
                 class={classes.flipCardContainer}
                 style={{
@@ -118,6 +118,7 @@ const Pricing: Component<{}> = () => {
                   packages={item}
                   extras={pricingExtras}
                   bandColor={bandColors[index % bandColors.length]}
+                  isActive={isMobile() && diff === 0}
                   image={
                     hasImages
                       ? pricingSkinningImages[
