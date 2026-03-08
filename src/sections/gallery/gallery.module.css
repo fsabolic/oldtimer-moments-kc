@@ -129,3 +129,22 @@
     padding: 0.375rem;
   }
 }
+
+.comingSoonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+}
+
+.comingSoonTitle {
+  font-size: 2.5rem;
+  font-family: var(--font-family-primary);
+  font-weight: 100;
+}
+
+@media (max-width: 767px) {
+  .comingSoonTitle {
+    font-size: 1.5rem;
+  }
+}

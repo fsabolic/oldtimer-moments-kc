@@ -1,4 +1,4 @@
-import { Component, createSignal, For } from "solid-js";
+import { Component, createSignal, For, Show, createMemo } from "solid-js";
 import classes from "./gallery.module.css";
 import PolaroidFrame from "../../components/polaroid-frame/PolaroidFrame";
 import Modal from "../../components/modal/Modal";
@@ -11,6 +11,7 @@ import ShadowedTitle from "../../components/shadowed-title/ShadowedTitle";
 import { useSkinningStore } from "../../global-store/SkinningStore";
 import { getApiImage } from "../../util/getApiImage";
 import { createScrollObserver } from "../../hooks/createScrollObserver";
+import BurstBadge from "../../components/burst-badge/BurstBadge";
 
 const Gallery: Component = () => {
   const gallerySkinning = useSkinningStore().gallerySkinning;
@@ -20,6 +21,7 @@ const Gallery: Component = () => {
 
   const pageId: ScrollId = "gallery";
   const title = gallerySkinningText.title;
+  const hasImages = gallerySkinningImages.length > 0;
 
   const polaroids = gallerySkinningImages.map((imageId, index) => ({
     index,
@@ -66,43 +68,71 @@ const Gallery: Component = () => {
           textColor="var(--gallery-title)"
         />
       </div>
-      <Modal open={!!openModal()} onClose={() => setOpenModal(null)}>
-        {openModal() && (
-          <ImageCarousel
-            images={polaroids}
-            firstIndex={openModal()?.index ?? 0}
-            onClose={() => setOpenModal(null)}
-          />
-        )}
-      </Modal>
-      <div ref={gridObserver.ref} class={classes.polaroidContainer}>
-        <For each={polaroids}>
-          {(galleryItem) => (
-            <div
-              class={`${classes.galleryItemWrapper} ${
-                gridObserver.isVisible() ? "animateFadeIn" : "animateHidden"
-              }`}
-              style={{
-                transform: transformStyle(),
-                "animation-delay": gridObserver.isVisible()
-                  ? getItemStaggerDelay(galleryItem.index)
-                  : undefined,
-              }}
-              onClick={() => handlePolaroidClick(galleryItem.index)}
+      <Show
+        when={hasImages}
+        fallback={
+          <div
+            ref={gridObserver.ref}
+            class={`${classes.comingSoonContainer} ${
+              gridObserver.isVisible() ? "animateFadeIn" : "animateHidden"
+            }`}
+          >
+            <BurstBadge
+              fill="var(--gallery-fallback-badge-fill)"
+              stroke="var(--gallery-fallback-badge-stroke)"
+              strokeWidth={4}
+              size="12rem"
+              pointCount={12}
+              spin={true}
             >
-              <div class={classes.galleryItem}>
-                <PolaroidFrame
-                  rotate={Math.random() * 10 - 5}
-                  class={classes.polaroidComponent}
-                  src={galleryItem.image}
-                  topTape={true}
-                  alt={`${title} - slika ${galleryItem.index + 1}`}
-                />
-              </div>
-            </div>
+              <ShadowedTitle
+                text="Uskoro..."
+                class={classes.comingSoonTitle}
+                shadowColor="var(--gallery-title-shadow)"
+                textColor="var(--gallery-title)"
+              />
+            </BurstBadge>
+          </div>
+        }
+      >
+        <Modal open={!!openModal()} onClose={() => setOpenModal(null)}>
+          {openModal() && (
+            <ImageCarousel
+              images={polaroids}
+              firstIndex={openModal()?.index ?? 0}
+              onClose={() => setOpenModal(null)}
+            />
           )}
-        </For>
-      </div>
+        </Modal>
+        <div ref={gridObserver.ref} class={classes.polaroidContainer}>
+          <For each={polaroids}>
+            {(galleryItem) => (
+              <div
+                class={`${classes.galleryItemWrapper} ${
+                  gridObserver.isVisible() ? "animateFadeIn" : "animateHidden"
+                }`}
+                style={{
+                  transform: transformStyle(),
+                  "animation-delay": gridObserver.isVisible()
+                    ? getItemStaggerDelay(galleryItem.index)
+                    : undefined,
+                }}
+                onClick={() => handlePolaroidClick(galleryItem.index)}
+              >
+                <div class={classes.galleryItem}>
+                  <PolaroidFrame
+                    rotate={Math.random() * 10 - 5}
+                    class={classes.polaroidComponent}
+                    src={galleryItem.image}
+                    topTape={true}
+                    alt={`${title} - slika ${galleryItem.index + 1}`}
+                  />
+                </div>
+              </div>
+            )}
+          </For>
+        </div>
+      </Show>
     </div>
   );
 };

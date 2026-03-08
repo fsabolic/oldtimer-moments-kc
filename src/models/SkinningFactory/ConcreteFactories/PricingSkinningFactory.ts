@@ -4,6 +4,7 @@ import { SectionSkinning } from "../../Skinning";
 import { BaseSkinningFactory } from "../SkinningFactory";
 import { PricingJsonResponse } from "../../json-responses/PricingJsonResponse";
 import { mapPricingJsonResponseToPricingTextJson } from "../../../mappers/PricingJsonResponseToPricingTextJson";
+import { pricingFallbackResponse } from "../../../constants/SkinningFallbackResponses";
 
 export class PricingSkinningFactory extends BaseSkinningFactory<
   PricingTextJson,
@@ -16,5 +17,8 @@ export class PricingSkinningFactory extends BaseSkinningFactory<
 
   mapJsonResponseToTextJson(json: PricingJsonResponse): PricingTextJson {
     return mapPricingJsonResponseToPricingTextJson(json);
+  }
+  getFallbackResponse(): PricingJsonResponse {
+    return pricingFallbackResponse;
   }
 }

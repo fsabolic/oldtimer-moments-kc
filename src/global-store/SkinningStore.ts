@@ -13,6 +13,7 @@ interface SkinningStore {
   gallerySkinning: SectionSkinning<GalleryTextJson>;
   pricingSkinning: SectionSkinning<PricingTextJson>;
   contactsSkinning: SectionSkinning<ContactsTextJson>;
+  useFallback: boolean;
 }
 
 const [skinningStore, setSkinningStore] = createStore<SkinningStore>({
@@ -21,9 +22,12 @@ const [skinningStore, setSkinningStore] = createStore<SkinningStore>({
   gallerySkinning: { textJson: skinningFallback.gallery, imageIds: [] },
   pricingSkinning: { textJson: skinningFallback.pricing, imageIds: [] },
   contactsSkinning: { textJson: skinningFallback.contacts, imageIds: [] },
+  useFallback: false,
 });
 
-function patch<T>(key: keyof SkinningStore, data: Partial<SectionSkinning<T>>) {
+type SkinningKey = Exclude<keyof SkinningStore, "useFallback">;
+
+function patch<T>(key: SkinningKey, data: Partial<SectionSkinning<T>>) {
   setSkinningStore(key, (prev) => ({
     ...prev,
     ...data,
@@ -52,5 +56,8 @@ export const setPricingSkinning = (
 export const setContactsSkinning = (
   data: Partial<SectionSkinning<ContactsTextJson>>,
 ) => patch("contactsSkinning", data);
+
+export const setUseFallback = (value: boolean) =>
+  setSkinningStore("useFallback", value);
 
 export const useSkinningStore = () => skinningStore;

@@ -128,28 +128,29 @@ export default function MobilePricingModal(props: MobilePricingModalProps) {
                     )}
                   </For>
                 </div>
-
-                <div class={classes.priceBadgeContainer}>
-                  <BurstBadge
-                    fill={`color-mix(in srgb, ${props.bandColor} 15%, white 5%)`}
-                    stroke={"var(--flip-card-inside-left-price-badge-stroke)"}
-                    strokeWidth={5}
-                    size="7.5rem"
-                    pointCount={10}
-                    spin={true}
-                  >
-                    <ShadowedTitle
-                      text={props.package.price + "€"}
-                      shadowColor="var(--flip-card-inside-left-price-badge-text-shadow)"
-                      textColor={
-                        "var(--flip-card-inside-left-price-badge-text)"
-                      }
-                      style={{
-                        "font-size": "var(--font-size-l)",
-                      }}
-                    />
-                  </BurstBadge>
-                </div>
+                {props.package.price && (
+                  <div class={classes.priceBadgeContainer}>
+                    <BurstBadge
+                      fill={`color-mix(in srgb, ${props.bandColor} 15%, white 5%)`}
+                      stroke={"var(--flip-card-inside-left-price-badge-stroke)"}
+                      strokeWidth={5}
+                      size="7.5rem"
+                      pointCount={10}
+                      spin={true}
+                    >
+                      <ShadowedTitle
+                        text={props.package.price + "€"}
+                        shadowColor="var(--flip-card-inside-left-price-badge-text-shadow)"
+                        textColor={
+                          "var(--flip-card-inside-left-price-badge-text)"
+                        }
+                        style={{
+                          "font-size": "var(--font-size-l)",
+                        }}
+                      />
+                    </BurstBadge>
+                  </div>
+                )}
 
                 {props.image && (
                   <div class={classes.polaroidContainer}>

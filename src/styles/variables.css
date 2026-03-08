@@ -124,6 +124,9 @@
   --gallery-title-shadow: var(--color-white);
   --gallery-title-bg: var(--surface-paper);
 
+  --gallery-fallback-badge-fill: var(--color-earth-300);
+  --gallery-fallback-badge-stroke: var(--color-earth-500);
+
   /* SECTIONS */
 
   /* loading screen */
