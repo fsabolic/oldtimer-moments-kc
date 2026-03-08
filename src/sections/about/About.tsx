@@ -1,4 +1,4 @@
-import { Component, createMemo } from "solid-js";
+import { Component, createMemo, Show } from "solid-js";
 import { PaperSection } from "../../components/paper-section/PaperSection";
 import classes from "./about.module.css";
 import textures from "../../styles/textures.module.css";
@@ -60,23 +60,25 @@ const About: Component = () => {
               </div>
             </div>
           </div>
-          <div
-            ref={imageObserver.ref}
-            class={`${classes.imageSection} ${
-              imageObserver.isVisible()
-                ? "animateSlideRight delay100"
-                : "animateHidden"
-            }`}
-          >
-            <PolaroidFrame
-              width={width()}
-              height={height()}
-              class={classes.polaroid}
-              sideTape={true}
-              src={getApiImage(aboutSkinningImage)}
-              alt={title}
-            />
-          </div>
+          <Show when={aboutSkinningImage}>
+            <div
+              ref={imageObserver.ref}
+              class={`${classes.imageSection} ${
+                imageObserver.isVisible()
+                  ? "animateSlideRight delay100"
+                  : "animateHidden"
+              }`}
+            >
+              <PolaroidFrame
+                width={width()}
+                height={height()}
+                class={classes.polaroid}
+                sideTape={true}
+                src={getApiImage(aboutSkinningImage)}
+                alt={title}
+              />
+            </div>
+          </Show>
         </div>
       </PaperSection>
     </div>

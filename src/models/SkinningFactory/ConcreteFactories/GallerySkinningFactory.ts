@@ -4,6 +4,7 @@ import { GalleryJsonResponse } from "../../json-responses/GalleryJsonResponse";
 import { SectionSkinning } from "../../Skinning";
 import { GalleryTextJson } from "../../text-jsons/GalleryTextJson";
 import { BaseSkinningFactory } from "../SkinningFactory";
+import { galleryFallbackResponse } from "../../../constants/SkinningFallbackResponses";
 
 export class GallerySkinningFactory extends BaseSkinningFactory<
   GalleryTextJson,
@@ -15,5 +16,8 @@ export class GallerySkinningFactory extends BaseSkinningFactory<
   }
   mapJsonResponseToTextJson(json: GalleryJsonResponse): GalleryTextJson {
     return mapGalleryJsonResponseToGalleryTextJson(json);
+  }
+  getFallbackResponse(): GalleryJsonResponse {
+    return galleryFallbackResponse;
   }
 }

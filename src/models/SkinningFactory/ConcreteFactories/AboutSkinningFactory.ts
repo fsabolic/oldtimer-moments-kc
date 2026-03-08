@@ -4,6 +4,7 @@ import { AboutJsonResponse } from "../../json-responses/AboutJsonResponse";
 import { SectionSkinning } from "../../Skinning";
 import { AboutTextJson } from "../../text-jsons/AboutTextJson";
 import { BaseSkinningFactory } from "../SkinningFactory";
+import { aboutFallbackResponse } from "../../../constants/SkinningFallbackResponses";
 
 export class AboutSkinningFactory extends BaseSkinningFactory<
   AboutTextJson,
@@ -15,5 +16,8 @@ export class AboutSkinningFactory extends BaseSkinningFactory<
   }
   mapJsonResponseToTextJson(json: AboutJsonResponse): AboutTextJson {
     return mapAboutJsonResponseToAboutTextJson(json);
+  }
+  getFallbackResponse(): AboutJsonResponse {
+    return aboutFallbackResponse;
   }
 }

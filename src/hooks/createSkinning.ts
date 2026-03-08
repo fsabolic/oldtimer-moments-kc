@@ -7,6 +7,7 @@ import { AboutSkinningFactory } from "../models/SkinningFactory/ConcreteFactorie
 import { GallerySkinningFactory } from "../models/SkinningFactory/ConcreteFactories/GallerySkinningFactory";
 import { PricingSkinningFactory } from "../models/SkinningFactory/ConcreteFactories/PricingSkinningFactory";
 import { ContactsSkinningFactory } from "../models/SkinningFactory/ConcreteFactories/ContactsSkinningFactory";
+import { setUseFallback } from "../global-store/SkinningStore";
 
 export const createSkinning = () => {
   const [skinningLoaded, setSkinningLoaded] = createSignal(false);
@@ -35,6 +36,12 @@ export const createSkinning = () => {
         const skinning = await factory.buildSkinning(pinata, group.id);
         factory.apply(skinning);
       }
+    } catch {
+      for (const factory of factories) {
+        const fallbackSkinning = factory.buildFallbackSkinning();
+        factory.apply(fallbackSkinning);
+      }
+      setUseFallback(true);
     } finally {
       setSkinningLoaded(true);
     }

@@ -10,6 +10,15 @@ export abstract class BaseSkinningFactory<T, Q> implements SkinningFactory<T> {
   abstract readonly groupName: string;
   abstract apply(skinning: SectionSkinning<T>): void;
   abstract mapJsonResponseToTextJson(json: Q): T;
+  abstract getFallbackResponse(): Q;
+
+  buildFallbackSkinning(): SectionSkinning<T> {
+    const fallbackResponse = this.getFallbackResponse();
+    const textJson = this.sanitizeTextJson(
+      this.mapJsonResponseToTextJson(fallbackResponse),
+    );
+    return { textJson, imageIds: [] };
+  }
 
   async buildSkinning(
     pinata: PinataSDK,

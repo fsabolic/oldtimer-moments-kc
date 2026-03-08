@@ -4,6 +4,7 @@ import { HeroTextJson } from "../../text-jsons/HeroTextJson";
 import { BaseSkinningFactory } from "../SkinningFactory";
 import { HeroJsonResponse } from "../../json-responses/HeroJsonResponse";
 import { mapHeroJsonResponseToHeroTextJson } from "../../../mappers/HeroJsonResponseToHeroTextJson";
+import { heroFallbackResponse } from "../../../constants/SkinningFallbackResponses";
 
 export class HeroSkinningFactory extends BaseSkinningFactory<
   HeroTextJson,
@@ -15,5 +16,8 @@ export class HeroSkinningFactory extends BaseSkinningFactory<
   }
   mapJsonResponseToTextJson(json: HeroJsonResponse): HeroTextJson {
     return mapHeroJsonResponseToHeroTextJson(json);
+  }
+  getFallbackResponse(): HeroJsonResponse {
+    return heroFallbackResponse;
   }
 }

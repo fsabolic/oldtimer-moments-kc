@@ -24,6 +24,8 @@ const Pricing: Component<{}> = () => {
   const pricingExtras = pricingSkinningText.extras;
   const pricingFootnotes = pricingSkinningText.footnotes;
 
+  const hasImages = pricingSkinningImages.length > 0;
+
   const [selectedPackageIndex, setSelectedPackageIndex] = createSignal<
     number | null
   >(null);
@@ -117,7 +119,11 @@ const Pricing: Component<{}> = () => {
                   extras={pricingExtras}
                   bandColor={bandColors[index % bandColors.length]}
                   image={
-                    pricingSkinningImages[index % pricingSkinningImages.length]
+                    hasImages
+                      ? pricingSkinningImages[
+                          index % pricingSkinningImages.length
+                        ]
+                      : undefined
                   }
                   onClick={() => flipCardClickHandler(index)}
                 />
@@ -157,7 +163,7 @@ const Pricing: Component<{}> = () => {
             : bandColors[0]
         }
         image={
-          selectedPackageIndex() !== null
+          hasImages && selectedPackageIndex() !== null
             ? pricingSkinningImages[
                 selectedPackageIndex()! % pricingSkinningImages.length
               ]
